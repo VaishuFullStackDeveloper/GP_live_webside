@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gram Panchayat Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; padding: 0; margin: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+      color: #2e3d49;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #004d40, #009688);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+    .container {
+      max-width: 1280px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+      padding: 30px 24px 20px;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 6px;
+      background: linear-gradient(to right, #43a047, #00c853);
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+      color: #2e7d32;
+    }
+    .card ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .card ul li {
+      padding: 5px 0;
+      border-bottom: 1px dashed #cfd8dc;
+      font-size: 0.95rem;
+    }
+    .card .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .card .btn {
+      background: #2e7d32;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .card .btn:hover {
+      background: #1b5e20;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #1b5e20;
+    }
+    footer {
+      background: #004d40;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 60px;
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .card { padding: 20px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>सेवा पृष्ठ (Services Page)</h1>
+    <p>आसान और प्रभावी सेवा — ग्रामपंचायत की हर जरूरत एक स्थान पर</p>
+  </header>
+
+  <section class="container">
+    <h2 class="section-title">Available Services (2025)</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>🧾 Birth Certificate</h3>
+        <ul>
+          <li>Hospital Birth Record</li>
+          <li>Parents Aadhaar & Ration Card</li>
+          <li>Fee: ₹25 | Within 7 Days</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Download Form</a>
+          <a href="#" class="btn">Apply Online</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🪦 Death Certificate</h3>
+        <ul>
+          <li>Hospital/Doctor Letter</li>
+          <li>Family Aadhaar & Witness</li>
+          <li>Fee: ₹20 | Same-day Issuance</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Download Form</a>
+          <a href="#" class="btn">Visit Office</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>💧 Water Connection</h3>
+        <ul>
+          <li>Address & Property Proof</li>
+          <li>Pipeline Verification</li>
+          <li>No Fee | Issued in 10 Days</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Apply Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🏠 House Tax Details</h3>
+        <ul>
+          <li>Property Tax Status</li>
+          <li>Online Payment Available</li>
+          <li>Tax Clearance Certificate</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Pay Tax</a>
+          <a href="#" class="btn">Get Certificate</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📣 Grievance Form (तक्रार)</h3>
+        <ul>
+          <li>Drainage / Electricity / Road</li>
+          <li>Online Submission + Images</li>
+          <li>Track Ticket ID via SMS</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Submit Complaint</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📜 RTI Request</h3>
+        <ul>
+          <li>Right to Info from Office</li>
+          <li>Submit with ₹10 fee</li>
+          <li>Form Verified by Gram Sevak</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Apply for RTI</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🆔 Aadhar & Voter Help</h3>
+        <ul>
+          <li>New / Update Request</li>
+          <li>Voter Search & Link Aadhaar</li>
+          <li>Help on Monday-Wednesday</li>
+        </ul>
+        <div class="btn-group">
+          <a href="mailto:aadharcenter@gp.in" class="btn">Contact Now</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>🧹 Sanitation Request</h3>
+        <ul>
+          <li>Light not working?</li>
+          <li>Drainage Blocked?</li>
+          <li>Use mobile photo upload</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Request Maintenance</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>💍 Marriage Certificate</h3>
+        <ul>
+          <li>Witnesses + Age Proof</li>
+          <li>Submit 3 Days in Advance</li>
+          <li>Fee: ₹100</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Download Form</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>📄 Domicile/Income/Caste</h3>
+        <ul>
+          <li>Proof for School or Govt Job</li>
+          <li>Process: 7 Working Days</li>
+          <li>Document Upload via Portal</li>
+        </ul>
+        <div class="btn-group">
+          <a href="#" class="btn">Apply Now</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 Your Gram Panchayat | Digital Rural Governance | Empowering India 🇮🇳
+  </footer>
+</body>
+</html>
