@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Village - Gram Panchayat</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #2d5a37;
+      --secondary: #4a7c59;
+      --accent: #7fb069;
+      --light: #f8fdf8;
+      --white: #ffffff;
+      --text: #2c3e50;
+      --text-light: #6c757d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .about-section {
+      padding: 60px 0;
+      background: linear-gradient(135deg, var(--light) 0%, #ffffff 100%);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--secondary));
+      border-radius: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .main-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 10px 30px rgba(45, 90, 55, 0.1);
+      margin-bottom: 40px;
+      border: 1px solid rgba(127, 176, 105, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .main-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(45, 90, 55, 0.15);
+    }
+
+    .village-image {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .village-image:hover {
+      transform: scale(1.05);
+    }
+
+    .content-area {
+      padding-left: 30px;
+    }
+
+    .content-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .content-text {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 25px;
+      line-height: 1.7;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .features-list li {
+      padding: 8px 0;
+      font-size: 0.95rem;
+      color: var(--text);
+      position: relative;
+      padding-left: 30px;
+      transition: color 0.3s ease;
+    }
+
+    .features-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 20px;
+      height: 20px;
+      background: var(--accent);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .features-list li:hover {
+      color: var(--primary);
+    }
+
+    .info-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border-radius: 15px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(45, 90, 55, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(127, 176, 105, 0.15);
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(45, 90, 55, 0.15);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .info-card:hover .card-icon {
+      transform: scale(1.1);
+    }
+
+    .card-icon i {
+      font-size: 1.5rem;
+      color: var(--white);
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .content-area {
+        padding-left: 0;
+        margin-top: 30px;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
+      
+      .content-title {
+        font-size: 1.7rem;
+      }
+      
+      .main-card {
+        padding: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        padding: 40px 0;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .content-title {
+        font-size: 1.5rem;
+      }
+      
+      .main-card {
+        padding: 25px;
+      }
+      
+      .village-image {
+        height: 250px;
+      }
+      
+      .info-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .section-title {
+        font-size: 1.6rem;
+      }
+      
+      .content-title {
+        font-size: 1.3rem;
+      }
+      
+      .main-card {
+        padding: 20px;
+      }
+      
+      .village-image {
+        height: 200px;
+      }
+      
+      .info-card {
+        padding: 25px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section class="about-section">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="section-header">
+        <h2 class="section-title">About Our Village</h2>
+        <p class="section-subtitle">
+          Discover the heart of Maharashtra's rural excellence and digital transformation
+        </p>
+      </div>
+
+      <!-- Main Content Card -->
+      <div class="main-card">
+        <div class="row align-items-center">
+          <div class="col-lg-5 mb-4 mb-lg-0">
+            <img src="https://i.ibb.co/JcXmnP2/village-pic.png" alt="Village" class="village-image">
+          </div>
+          <div class="col-lg-7">
+            <div class="content-area">
+              <h3 class="content-title">Welcome to Our Gram Panchayat</h3>
+              <p class="content-text">
+                Located in the heart of Maharashtra, our village represents the perfect blend of tradition and innovation. We are committed to sustainable development while preserving our rich cultural heritage.
+              </p>
+              <ul class="features-list">
+                <li>Strong community participation in governance</li>
+                <li>Award-winning water conservation programs</li>
+                <li>100% digital birth/death certificate system</li>
+                <li>Complete Wi-Fi connectivity across the village</li>
+                <li>Sustainable agriculture and farming practices</li>
+                <li>Women empowerment and skill development</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Cards -->
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+          <h4 class="card-title">Strategic Location</h4>
+          <p class="card-text">
+            Perfectly positioned in Maharashtra's cultural heartland with excellent connectivity and natural beauty.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="bi bi-clock-history"></i>
+          </div>
+          <h4 class="card-title">Rich Heritage</h4>
+          <p class="card-text">
+            Over 150 years of history, traditions, and community spirit that continues to thrive today.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <div class="card-icon">
+            <i class="bi bi-people-fill"></i>
+          </div>
+          <h4 class="card-title">United Community</h4>
+          <p class="card-text">
+            Strong bonds, festivals, and collective efforts that make our village a model for rural development.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
