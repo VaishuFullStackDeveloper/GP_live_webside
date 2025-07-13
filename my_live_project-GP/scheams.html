@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gram Panchayat Schemes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background: linear-gradient(145deg, #f0f7f2 0%, #ffffff 100%);
+        color: #1a3c34;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      header {
+        background: linear-gradient(90deg, #2a9d8f, #51cf66);
+        color: white;
+        padding: 20px 15px;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      header h1 {
+        font-size: 1.6rem;
+        font-weight: 700;
+        animation: slideIn 1s ease-out;
+      }
+
+      header p {
+        font-size: 0.85rem;
+        margin-top: 5px;
+        opacity: 0.9;
+        animation: fadeIn 1s ease-out 0.2s both;
+      }
+
+      .tabs {
+        display: flex;
+        justify-content:center;
+        overflow-x: auto;
+        padding: 10px 15px;
+        gap: 10px;
+        scroll-behavior: smooth;
+        margin: 0 auto;
+        max-width: 100%;
+      }
+
+      .tabs::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab {
+        background: #ffffff;
+        padding: 6px 16px;
+        border-radius: 20px;
+        cursor: pointer;
+        border: 2px solid #51cf66;
+        color: #1a3c34;
+        font-weight: 600;
+        font-size: 15px;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        flex-shrink: 0;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+      }
+
+      .tab:hover,
+      .tab.active {
+        background: #51cf66;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 20px 15px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .scheme-card {
+        background: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        min-height: 240px;
+        padding-bottom: 10px;
+      }
+
+      .scheme-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .scheme-card i {
+        font-size: 2rem;
+        margin: 15px auto 5px;
+        transition: transform 0.3s ease;
+        text-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+      }
+
+      .scheme-card:hover i {
+        transform: scale(1.1);
+      }
+
+      .icon-agri {
+        color: #27ae60;
+      }
+      .icon-infra {
+        color: #2980b9;
+      }
+      .icon-social {
+        color: #e67e22;
+      }
+
+      .scheme-card h3 {
+        font-size: 20px;
+        color: #1a3c34;
+        margin: 8px 0;
+        font-weight: 600;
+      }
+
+      .scheme-card p {
+        font-size: 13px;
+        color: #555;
+        padding: 0 15px 10px;
+        flex-grow: 1;
+      }
+
+      .btn-group {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        padding: 0 15px;
+      }
+
+      .btn {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 16px;
+        font-weight: 600;
+        font-size:12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+      }
+
+      .btn.learn {
+        background: #2a9d8f;
+        color: white;
+      }
+
+      .btn.learn:hover {
+        background: #21867a;
+        transform: scale(1.05);
+      }
+
+      .btn.apply {
+        background: transparent;
+        border: 2px solid #2a9d8f;
+        color: #2a9d8f;
+      }
+
+      .btn.apply:hover {
+        background: #2a9d8f;
+        color: white;
+        transform: scale(1.05);
+      }
+
+     
+
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+  header p {
+    font-size: 0.8rem;
+  }
+
+  .tab {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; 
+  }
+
+  .scheme-card {
+    min-height: 200px;         
+    padding: 10px 0;
+  }
+
+  .scheme-card i {
+    font-size: 1.8rem;
+    margin: 10px auto 5px;
+  }
+
+  .scheme-card h3 {
+    font-size: 1rem;
+    margin: 6px 0;
+  }
+
+  .scheme-card p {
+    font-size: 0.75rem;
+    padding: 0 10px 8px;
+  }
+
+  .btn-group {
+    gap: 6px;
+    padding: 5px 0 10px;
+  }
+
+  .btn {
+    padding: 5px 8px;
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .scheme-card {
+    min-height: 180px;
+  }
+
+  .scheme-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .scheme-card i {
+    font-size: 1.5rem;
+  }
+
+  .btn {
+    font-size: 0.6rem;
+    padding: 4px 7px;
+  }
+}
+
+
+    </style>
+  
+
+ 
+  <body>
+    <header>
+      <h1>Current Government Schemes</h1>
+      <p>Active 2025-26 schemes empowering our village community</p>
+    </header>
+
+    <div class="tabs">
+      <div class="tab active" onclick="filter('all')">All</div>
+      <div class="tab" onclick="filter('agri')">Agriculture</div>
+      <div class="tab" onclick="filter('infra')">Infrastructure</div>
+      <div class="tab" onclick="filter('social')">Social Welfare</div>
+    </div>
+
+    <section class="grid" id="schemes-grid">
+      <!-- Agriculture -->
+      <div class="scheme-card agri">
+        <i class="fas fa-tractor icon-agri"></i>
+        <h3>PM Dhan‑Dhaanya Krishi Yojana</h3>
+        <p>Boosts sustainable farming in 100 low‑productivity districts for 1.7 crore farmers</p>
+        <div class="btn-group">
+          <button class="btn learn">Learn More</button>
+          <button class="btn apply">Apply Now</button>
+        </div>
+      </div>
+
+      <div class="scheme-card agri">
+        <i class="fas fa-seedling icon-agri"></i>
+        <h3>Aatmanirbharta in Pulses Mission</h3>
+        <p>6‑year mission enhancing pulses production, storage & pricing</p>
+        <div class="btn-group">
+          <button class="btn learn">Learn More</button>
+          <button class="btn apply">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- Infrastructure -->
+      <div class="scheme-card infra">
+        <i class="fas fa-wifi icon-infra"></i>
+        <h3>National Broadband Mission 2.0</h3>
+        <p>High‑speed broadband to 2.7 lakh villages & Panchayat offices by 2030</p>
+        <div class="btn-group">
+          <button class="btn learn">Learn More</button>
+          <button class="btn apply">Apply Now</button>
+        </div>
+      </div>
+
+      <div class="scheme-card infra">
+        <i class="fas fa-map-marked-alt icon-infra"></i>
+        <h3>SVAMITVA Scheme</h3>
+        <p>Drone‑mapping & property cards in villages; 1.12cr cards issued</p>
+        <div class="btn-group">
+          <button class="btn learn">Learn More</button>
+          <button class="btn apply">Apply Now</button>
+        </div>
+      </div>
+
+      <div class="scheme-card infra">
+        <i class="fas fa-faucet icon-infra"></i>
+        <h3>Jal Jeevan Mission (Har Ghar Jal)</h3>
+        <p>Tap‑water connections to all rural homes by 2028</p>
+        <div class="btn-group">
+          <button class="btn learn">Learn More</button>
+          <button class="btn apply">Apply Now</button>
+        </div>
+      </div>
+
+      <!-- Social Welfare -->
+      <div class="scheme-card social">
+        <i class="fas fa-hand-holding-heart icon-social"></i>
+        <h3>Nari Shakti Yojana</h3>
+        <p>Loans up to ₹25 lakh for women‑led MSMEs & SHGs</p>
+        <div class="btn-group">
+          <button class="btn learn">Learn More</button>
+          <button class="btn apply">Apply Now</button>
+        </div>
+      </div>
+
+      <div class="scheme-card social">
+        <i class="fas fa-baby icon-social"></i>
+        <h3>Saksham Anganwadi & Poshan 2.0</h3>
+        <p>Nutritional support to 8cr children & 1cr mothers</p>
+        <div class="btn-group">
+          <button class="btn learn">Learn More</button>
+          <button class="btn apply">Apply Now</button>
+        </div>
+      </div>
+
+      <div class="scheme-card social">
+        <i class="fas fa-utensils icon-social"></i>
+        <h3>PM Garib Kalyan Anna Yojana</h3>
+        <p>Free food‑grain to 81cr people through Dec 2028</p>
+        <div class="btn-group">
+          <button class="btn learn">Learn More</button>
+          <button class="btn apply">Apply Now</button>
+        </div>
+      </div>
+    </section>
+
+   
+
+    <script>
+      function filter(category) {
+        document
+          .querySelectorAll(".tab")
+          .forEach((t) => t.classList.remove("active"));
+        event.target.classList.add("active");
+        document.querySelectorAll(".scheme-card").forEach((card) => {
+          if (category === "all" || card.classList.contains(category)) {
+            card.style.display = "flex";
+            card.style.animation = "fadeIn 0.6s ease-out";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

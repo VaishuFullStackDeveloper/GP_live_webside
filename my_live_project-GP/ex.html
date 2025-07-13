@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XYZ Grampanchayat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-image: url('https://images.unsplash.com/photo-1616931386512-0b0c7c7766ed');
+      background-size: cover;
+      background-position: center;
+      padding: 100px 20px;
+      color: white;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    nav {
+      background-color: #2e7d32;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #c8e6c9;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #2e7d32;
+    }
+
+    .services, .members, .projects {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 280px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .notice-board {
+      background-color: #e8f5e9;
+      padding: 30px;
+      border-left: 5px solid #43a047;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .contact {
+      background-color: #f1f8e9;
+      padding: 40px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    .contact input, .contact textarea {
+      width: 90%;
+      max-width: 500px;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .contact button {
+      padding: 10px 20px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .contact button:hover {
+      background-color: #2e7d32;
+    }
+
+    footer {
+      background-color: #1b5e20;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    @media(max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .card {
+        width: 100%;
+      }
+    }
+    .carousel-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><i class="fas fa-leaf"></i> Welcome to XYZ Grampanchayat</h1>
+    <p>Committed to the progress and welfare of our village</p>
+  </header>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#members">Members</a>
+    <a href="#projects">Projects</a>
+    <a href="#notices">Notices</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="services">
+    <h2 class="section-title">Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3><i class="fas fa-faucet"></i> Water Supply</h3>
+        <p>Safe and clean drinking water for every household.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-road"></i> Road Maintenance</h3>
+        <p>Better connectivity through developed roads.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-toilet"></i> Sanitation</h3>
+        <p>Clean environment and proper waste disposal.</p>
+      </div>
+      <div class="card">
+        <h3><i class="fas fa-file-alt"></i> Certificate Services</h3>
+        <p>Quick access to birth, death and other important records.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="members">
+    <h2 class="section-title">Panchayat Members</h2>
+    <div class="members">
+      <div class="card">
+        <img src="https://via.placeholder.com/250x150" alt="Sarpanch">
+        <h3>Sarpanch</h3>
+        <p>Mr. Ramesh Patil</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150" alt="Deputy Sarpanch">
+      <h3>Deputy Sarpanch</h3>
+      <p>Mrs. Asha Shinde</p>
+    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/250x150" alt="Ward Member">
+      <h3>Ward Member</h3>
+      <p>Mr. Anil Deshmukh</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Development Projects</h2>
+  <div class="projects">
+    <div class="card">
+      <h3><i class="fas fa-water"></i> Village Water Tank</h3>
+      <p>New water storage built in 2024 for better supply.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-school"></i> School Renovation</h3>
+      <p>Primary school upgraded with digital facilities.</p>
+    </div>
+  </div>
+</section>
+
+<section id="notices">
+  <h2 class="section-title">Latest Notices</h2>
+  <div class="notice-board">
+    <p>🔔 Gram Sabha Meeting on 30th June 2025 at 10:00 AM in Panchayat Bhavan.</p>
+    <p>📄 Apply for Birth/Death Certificate online from 1st July 2025.</p>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <div class="contact">
+    <form>
+      <input type="text" placeholder="Your Name" required><br>
+      <input type="email" placeholder="Your Email" required><br>
+      <textarea rows="5" placeholder="Your Message"></textarea><br>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 XYZ Grampanchayat. All Rights Reserved.</p>
+  <p><i class="fas fa-envelope"></i> xyzgram@gmail.com | <i class="fas fa-phone"></i> +91-9876543210</p>
+</footer>
+
+</body>
+</html>

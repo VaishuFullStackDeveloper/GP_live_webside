@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gram Panchayat Services</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+  
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0fdf4;
+    }
+  
+    .services-container {
+      display: flex;
+      flex-direction: row;
+      max-width: 1600px;
+      margin: 20px auto;
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      max-height: 90vh;
+      height: auto;
+    }
+  
+    .sidebar {
+      width: 320px;
+      background: #1b4332;
+      padding: 20px 15px;
+      color: white;
+      overflow-y: auto;
+    }
+  
+    .sidebar h2 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .service-btn {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      background: #2d6a4f;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      text-align: left;
+      transition: 0.3s;
+    }
+  
+    .service-btn:hover,
+    .service-btn.active {
+      background: #40916c;
+    }
+  
+    .content {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+      background-color: #fbfffc;
+    }
+  
+    .content h3 {
+      margin-top: 0;
+      color: #1b4332;
+      font-size: 1.8rem;
+    }
+  
+    .section-block {
+      margin-bottom: 20px;
+    }
+  
+    .section-block h4 {
+      color: #2d6a4f;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+  
+    .document-list li {
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+  
+    .btn-group {
+      margin-top: 20px;
+    }
+  
+    .btn-group a {
+      display: inline-block;
+      background: #2d6a4f;
+      color: white;
+      padding: 10px 18px;
+      margin-right: 15px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: background 0.3s;
+    }
+  
+    .btn-group a:hover {
+      background: #40916c;
+    }
+  
+    /* ✅ Mobile & Tablet Responsive */
+    @media (max-width: 992px) {
+      .services-container {
+        flex-direction: column;
+        margin: 20px 10px;
+      }
+  
+      .sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 15px;
+        width: 100%;
+      }
+  
+      .sidebar h2 {
+        grid-column: span 2;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
+  
+      .service-btn {
+        font-size: 0.8rem;
+        padding: 8px 6px;
+        text-align: center;
+        white-space: normal;
+        line-height: 1.2;
+        margin: 0;
+      }
+  
+      .content {
+        padding: 20px;
+      }
+  
+      .content h3 {
+        font-size: 1.5rem;
+      }
+  
+      .section-block h4 {
+        font-size: 0.95rem;
+      }
+  
+      .document-list li {
+        font-size: 0.85rem;
+      }
+  
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+  
+      .btn-group a {
+        width: 100%;
+        padding: 10px;
+        font-size: 0.9rem;
+        text-align: center;
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .sidebar {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 10px;
+      }
+  
+      .sidebar h2 {
+        grid-column: span 2;
+        font-size: 1.2rem;
+      }
+  
+      .service-btn {
+        font-size: 0.75rem;
+        padding: 6px 4px;
+      }
+  
+      .content h3 {
+        font-size: 1.4rem;
+      }
+  
+      .section-block h4 {
+        font-size: 0.9rem;
+      }
+  
+      .document-list li {
+        font-size: 0.8rem;
+      }
+  
+      .btn-group a {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+  
+</head>
+<body>
+
+<div class="services-container">
+  <div class="sidebar">
+    <h2>📋 Services</h2>
+    <button class="service-btn active" onclick="showService('birth')">👶 Birth Certificate</button>
+    <button class="service-btn" onclick="showService('death')">⚰️ Death Certificate</button>
+    <button class="service-btn" onclick="showService('water')">🚰 Water Connection</button>
+    <button class="service-btn" onclick="showService('marriage')">💍 Marriage Certificate</button>
+    <button class="service-btn" onclick="showService('tax')">🏠 House Tax</button>
+    <button class="service-btn" onclick="showService('aadhar')">🆔 Aadhar / Voter Help</button>
+    <button class="service-btn" onclick="showService('grievance')">📢 Grievance Form</button>
+    <button class="service-btn" onclick="showService('lighting')">💡 Sanitation & Lighting</button>
+    <button class="service-btn" onclick="showService('caste')">📑 Domicile/Income/Caste</button>
+    <button class="service-btn" onclick="showService('rti')">📄 RTI Request</button>
+  </div>
+
+  <div class="content" id="service-info">
+    <!-- Default scheme will load here -->
+  </div>
+</div>
+
+<script>
+  const data = {
+    birth: {
+      title: "Birth Certificate",
+      desc: "Used for official birth registration. Required for school, ID, and government schemes.",
+      docs: ["Hospital birth certificate", "Parents' Aadhar cards", "Address proof", "Filled application form"],
+      process: "Submit the form and documents at the Gram Panchayat. Certificate issued within 7 days.",
+      fees: "Free within 21 days, ₹50 after 21 days.",
+      applyLink: "#apply-birth",
+      formLink: "#form-birth"
+    },
+    death: {
+      title: "Death Certificate",
+      desc: "Proof of a person's death. Used for legal and financial matters like pension, insurance.",
+      docs: ["Medical certificate of death", "Aadhar card of deceased", "Applicant ID proof", "Filled application form"],
+      process: "Submit documents to Panchayat. Certificate issued within 5–10 days.",
+      fees: "₹50",
+      applyLink: "#apply-death",
+      formLink: "#form-death"
+    },
+    water: {
+      title: "Water Connection",
+      desc: "Apply for new or modified water supply connections for home or farm.",
+      docs: ["Property proof", "ID proof", "Electricity bill", "Filled application form"],
+      process: "Submit documents. Connection will be inspected and installed within 15 working days.",
+      fees: "₹300 + installation charges",
+      applyLink: "#apply-water",
+      formLink: "#form-water"
+    },
+    marriage: {
+      title: "Marriage Certificate",
+      desc: "Legal document verifying marriage. Required for visa, bank, and legal purposes.",
+      docs: ["Marriage invitation/photo", "Bride and groom ID proof", "2 witnesses' IDs", "Photos", "Filled form"],
+      process: "Submit documents. Certificate issued after 7–10 days verification.",
+      fees: "₹100",
+      applyLink: "#apply-marriage",
+      formLink: "#form-marriage"
+    },
+    tax: {
+      title: "House Tax",
+      desc: "Check and pay property/house tax. View receipts and clear dues.",
+      docs: ["House number or property ID", "Owner ID proof", "Old tax receipt"],
+      process: "Available at Gram Panchayat or online portal. Instant payment & receipt.",
+      fees: "Based on area & property type",
+      applyLink: "#apply-tax",
+      formLink: "#form-tax"
+    },
+    aadhar: {
+      title: "Aadhar / Voter Help",
+      desc: "Help with new applications, corrections or updates in Aadhar or Voter ID.",
+      docs: ["Old Aadhar/Voter ID", "DOB proof", "Address proof", "Photo"],
+      process: "Walk-in to Panchayat center. Updates done in 7–15 days.",
+      fees: "₹50 for correction",
+      applyLink: "#apply-aadhar",
+      formLink: "#form-aadhar"
+    },
+    grievance: {
+      title: "Grievance Form",
+      desc: "Submit complaints about sanitation, roads, electricity, or local issues.",
+      docs: ["ID proof", "Issue details", "Location photo (if available)"],
+      process: "Submit at Panchayat. Issue acknowledged in 5 days, resolved soon.",
+      fees: "No charges",
+      applyLink: "#apply-grievance",
+      formLink: "#form-grievance"
+    },
+    lighting: {
+      title: "Sanitation & Lighting",
+      desc: "Request new streetlights, garbage collection, or public toilet repairs.",
+      docs: ["Request letter", "Location address", "Photos (if possible)"],
+      process: "Field visit within 5–7 days, action initiated accordingly.",
+      fees: "Free",
+      applyLink: "#apply-lighting",
+      formLink: "#form-lighting"
+    },
+    caste: {
+      title: "Domicile / Income / Caste",
+      desc: "Apply for essential certificates required for education, jobs, and schemes.",
+      docs: ["Aadhar card", "Ration card", "School bonafide", "Caste proof"],
+      process: "Verification done by officials. Issued within 10–15 working days.",
+      fees: "₹30 per certificate",
+      applyLink: "#apply-caste",
+      formLink: "#form-caste"
+    },
+    rti: {
+      title: "RTI Request",
+      desc: "File an RTI to access official Panchayat records or decisions.",
+      docs: ["ID proof", "Detailed request letter", "RTI application form"],
+      process: "Reply given within 30 days of submission as per RTI Act.",
+      fees: "₹10 (RTI filing fee)",
+      applyLink: "#apply-rti",
+      formLink: "#form-rti"
+    }
+  };
+
+  function showService(key) {
+    document.querySelectorAll('.service-btn').forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+    const s = data[key];
+    document.getElementById('service-info').innerHTML = `
+      <h3>${s.title}</h3>
+      <div class="section-block">
+        <p>${s.desc}</p>
+      </div>
+      <div class="section-block">
+        <h4>📄 Required Documents:</h4>
+        <ul class="document-list">
+          ${s.docs.map(doc => `<li>✅ ${doc}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="section-block">
+        <h4>🛠️ Process:</h4>
+        <p>${s.process}</p>
+      </div>
+      <div class="section-block">
+        <h4>💰 Fees:</h4>
+        <p>${s.fees}</p>
+      </div>
+      <div class="btn-group">
+        <a href="${s.applyLink}">📝 Apply Now</a>
+        <a href="${s.formLink}">📄 Download Form</a>
+      </div>
+    `;
+  }
+
+  // Load default on first load
+  showService('birth');
+</script>
+
+</body>
+</html>
