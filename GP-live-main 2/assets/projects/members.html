@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gram Panchayat Members</title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+ 
+        /* Main container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+ 
+        /* Header with beautiful gradient */
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 50%, #5d8a6b 100%);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            width: 100vw;
+        }
+ 
+        /* Header decorative elements */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+ 
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+ 
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+ 
+        /* Main content with glass effect */
+        .content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+ 
+        /* Primary members section */
+        .primary-members {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+ 
+        /* Beautiful member card with premium design */
+        .member-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.1),
+                0 1px 8px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            width: 300px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transform: translateY(0);
+        }
+ 
+        /* Card hover effect */
+        .member-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.15),
+                0 10px 20px rgba(74, 124, 89, 0.1);
+        }
+ 
+        /* Card active/click effect */
+        .member-card:active,
+        .member-card.clicked {
+            transform: translateY(-5px) scale(0.98);
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.2),
+                inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+ 
+        /* Decorative gradient overlay */
+        .member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #4a7c59, #2d5016, #4a7c59);
+            border-radius: 20px 20px 0 0;
+        }
+ 
+        /* Member photo with beautiful styling */
+        .member-photo {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            overflow: hidden;
+            border: 4px solid #4a7c59;
+            background: linear-gradient(45deg, #f0f2f5, #e8ebf0);
+            box-shadow:
+                0 8px 16px rgba(0,0,0,0.1),
+                inset 0 2px 4px rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+ 
+        .member-card:hover .member-photo {
+            transform: scale(1.1);
+            border-color: #2d5016;
+        }
+ 
+        .member-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+ 
+        .member-card:hover .member-photo img {
+            transform: scale(1.05);
+        }
+ 
+        /* Member name styling */
+        .member-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #2d5016;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+ 
+        /* Beautiful designation badge */
+        .member-designation {
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+ 
+        
+ 
+        .member-card:hover .member-icon {
+            transform: scale(1.1) ;
+            box-shadow: 0 6px 18px rgba(74, 124, 89, 0.4);
+        }
+ 
+        /* Section title */
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2d5016;
+            margin-bottom: 35px;
+            font-weight: 700;
+            position: relative;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+ 
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #4a7c59, #2d5016);
+            border-radius: 2px;
+        }
+ 
+        /* Other members grid */
+        .other-members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+ 
+        /* Other member cards with premium styling */
+        .other-member-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08),
+                0 2px 6px rgba(0,0,0,0.04);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+ 
+        /* Other member card hover effect */
+        .other-member-card:hover {
+            transform: translateY(-8px);
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.12),
+                0 5px 15px rgba(74, 124, 89, 0.08);
+        }
+ 
+        /* Other member card click effect */
+        .other-member-card:active,
+        .other-member-card.clicked {
+            transform: translateY(-3px) scale(0.98);
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.15),
+                inset 0 2px 4px rgba(0,0,0,0.08);
+        }
+        /* Icon styling for other members */
+        .other-member-icon {
+            background: linear-gradient(135deg, #4a7c59 0%, #2d5016 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(74, 124, 89, 0.3);
+            transition: all 0.3s ease;
+        }
+ 
+        .other-member-card:hover .other-member-icon {
+            transform: scale(1.15) ;
+            box-shadow: 0 12px 30px rgba(74, 124, 89, 0.4);
+        }
+ 
+        /* Decorative corner element */
+        .other-member-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-left: 30px solid transparent;
+            border-top: 30px solid #4a7c59;
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
+        }
+ 
+        .other-member-card:hover::before {
+            opacity: 0.3;
+        }
+ 
+        /* Other member card content */
+        .other-member-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2d5016;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+ 
+        .other-member-description {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            line-height: 1.4;
+        }
+ 
+        /* Pulse animation for clicked cards */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+ 
+        .pulse-animation {
+            animation: pulse 0.6s ease-in-out;
+        }
+ 
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+ 
+            .header h1 {
+                font-size: 2rem;
+            }
+ 
+            .content {
+                padding: 30px 20px;
+            }
+ 
+            .primary-members {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+ 
+            .member-card {
+                width: 100%;
+                max-width: 320px;
+            }
+ 
+            .other-members-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+ 
+        @media (max-width: 480px) {
+            .header {
+                padding: 25px 15px;
+            }
+ 
+            .header h1 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+ 
+            .content {
+                padding: 25px 15px;
+            }
+ 
+            .member-card {
+                padding: 25px 20px;
+                width: 100%;
+            }
+ 
+            .member-photo {
+                width: 90px;
+                height: 90px;
+            }
+ 
+            .member-name {
+                font-size: 1.2rem;
+            }
+ 
+            .member-designation {
+                font-size: 0.8rem;
+                padding: 8px 16px;
+            }
+ 
+            .section-title {
+                font-size: 1.6rem;
+            }
+        }
+ 
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+ 
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+ 
+        /* Staggered animation delays */
+        .member-card:nth-child(1) { animation-delay: 0.1s; }
+        .member-card:nth-child(2) { animation-delay: 0.2s; }
+        .member-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        .other-member-card:nth-child(1) { animation-delay: 0.4s; }
+        .other-member-card:nth-child(2) { animation-delay: 0.5s; }
+        .other-member-card:nth-child(3) { animation-delay: 0.6s; }
+        .other-member-card:nth-child(4) { animation-delay: 0.7s; }
+        .other-member-card:nth-child(5) { animation-delay: 0.8s; }
+        .other-member-card:nth-child(6) { animation-delay: 0.9s; }
+        .other-member-card:nth-child(7) { animation-delay: 1.0s; }
+        .other-member-card:nth-child(8) { animation-delay: 1.1s; }
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <!-- Header section -->
+        <div class="header">
+            <h1>Our Gram Panchayat Members</h1>
+        </div>
+ 
+        <!-- Main content -->
+        <div class="content">
+            <!-- Primary members section -->
+            <div class="primary-members">
+                <!-- Member 1 - Gram Sevak/Secretary -->
+                <div class="member-card fade-in">
+                   
+                    <div class="member-photo">
+                        <img src="https://via.placeholder.com/110x110/4a7c59/ffffff?text=GS" alt="Gram Sevak">
+                    </div>
+                    <div class="member-name">Your Name</div>
+                    <div class="member-designation">Gram Sevak / Secretary</div>
+                </div>
+ 
+                <!-- Member 2 - Sarpanch -->
+                <div class="member-card fade-in">
+                   
+                    <div class="member-photo">
+                        <img src="https://via.placeholder.com/110x110/4a7c59/ffffff?text=SP" alt="Sarpanch">
+                    </div>
+                    <div class="member-name">Your Name</div>
+                    <div class="member-designation">Sarpanch</div>
+                </div>
+ 
+                <!-- Member 3 - Deputy Sarpanch -->
+                <div class="member-card fade-in">
+                   
+                    <div class="member-photo">
+                        <img src="https://via.placeholder.com/110x110/4a7c59/ffffff?text=DS" alt="Deputy Sarpanch">
+                    </div>
+                    <div class="member-name">Your Name</div>
+                    <div class="member-designation">Deputy Sarpanch</div>
+                </div>
+            </div>
+ 
+            <!-- Other members section -->
+            <div class="other-members">
+                <h2 class="section-title">Other Gram Panchayat Members</h2>
+                
+                <div class="other-members-grid">
+                    <!-- Ward Members -->
+                    <div class="other-member-card fade-in">
+                        <div class="other-member-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="other-member-title">Ward Members</div>
+                        <div class="other-member-description">Represents a village ward</div>
+                    </div>
+ 
+                    <!-- Talathi -->
+                    <div class="other-member-card fade-in">
+                        <div class="other-member-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="other-member-title">Talathi</div>
+                        <div class="other-member-description">Village land records officer</div>
+                    </div>
+ 
+                    <!-- Health Worker -->
+                    <div class="other-member-card fade-in">
+                        <div class="other-member-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="other-member-title">Health Worker</div>
+                        <div class="other-member-description">Village health services</div>
+                    </div>
+ 
+                    <!-- Anganwadi Sevika -->
+                    <div class="other-member-card fade-in">
+                        <div class="other-member-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <div class="other-member-title">Anganwadi Sevika</div>
+                        <div class="other-member-description">Child development services</div>
+                    </div>
+ 
+                    <!-- Rozgar Sevak -->
+                    <div class="other-member-card fade-in">
+                        <div class="other-member-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <div class="other-member-title">Rozgar Sevak</div>
+                        <div class="other-member-description">Employment schemes coordinator</div>
+                    </div>
+ 
+                    <!-- Education Committee -->
+                    <div class="other-member-card fade-in">
+                        <div class="other-member-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="other-member-title">Education Committee</div>
+                        <div class="other-member-description">Village education oversight</div>
+                    </div>
+ 
+                    <!-- Sanitation Committee -->
+                    <div class="other-member-card fade-in">
+                        <div class="other-member-icon">
+                            <i class="fas fa-broom"></i>
+                        </div>
+                        <div class="other-member-title">Sanitation Committee</div>
+                        <div class="other-member-description">Village cleanliness team</div>
+                    </div>
+ 
+                    <!-- Panchayat Clerk -->
+                    <div class="other-member-card fade-in">
+                        <div class="other-member-icon">
+                            <i class="fas fa-clipboard"></i>
+                        </div>
+                        <div class="other-member-title">Panchayat Clerk</div>
+                        <div class="other-member-description">Administrative support staff</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <script>
+        // Minimal JavaScript for click effects
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Get all clickable cards
+            const cards = document.querySelectorAll('.member-card, .other-member-card');
+            
+            // Add click effect to each card
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    // Add clicked class for visual feedback
+                    this.classList.add('clicked');
+                    
+                    // Add pulse animation
+                    this.classList.add('pulse-animation');
+                    
+                    // Remove clicked class after animation
+                    setTimeout(() => {
+                        this.classList.remove('clicked');
+                        this.classList.remove('pulse-animation');
+                    }, 600);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+ 
