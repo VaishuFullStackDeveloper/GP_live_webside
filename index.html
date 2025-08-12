@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- page title -->
+  <title>Wiwara Grampanchayat</title>
+ <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <!-- font awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- bootstrap css for carousel and responsive grid -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- bootstrap icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+
+  <!--  css file -->
+  <link rel="stylesheet" href="./assets/css/one.css" />
+  <!-- script  -->
+   <script src="./assets/js/script.js"></script>
+</head>
+
+<body>
+  <!------------------ Header Section ------------------>
+  <header class="header-container">
+    <!-- Top nav bar -->
+    <div class="government-bar">
+      <div class="government-bar-text" id="govBar">
+        भारत सरकार | Government of India | Wiwara Gram Panchayat
+      </div>
+    </div>
+  
+    <!-- Second nav bar -->
+    <div class="main-header">
+      <!-- Logo and title -->
+      <div class="logo-section">
+        <div class="logo-icon">WGP</div>
+        <div class="logo-text">
+          <div class="logo-title" id="logoTitle">Wiwara Gram Panchayat</div>
+          <div class="logo-subtitle" id="logoSubtitle">विवारा ग्राम पंचायत</div>
+        </div>
+      </div>
+  
+      <!-- Desktop nav menu -->
+      <nav class="desktop-nav">
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link" id="homeLink">Home</a></li>
+          <li><a href="#schemes" class="nav-link" id="schemesLink">Schemes</a></li>
+          <li><a href="#member" class="nav-link" id="memberLink">Member</a></li>
+          <li><a href="#services" class="nav-link" id="servicesLink">Services</a></li>
+          <li><a href="#about" class="nav-link" id="aboutLink">About</a></li>
+          <li><a href="#contact" class="nav-link" id="contactLink">Contact</a></li>
+          
+          <!-- Language Dropdown -->
+          <select class="form-select form-select-md" name="language" id="select-lang" onchange="translateLanguage()">
+    
+            <option value="english" selected>English</option>
+            <option value="hindi">हिन्दी</option>
+            <option value="marathi">मराठी</option>
+          </select>
+
+        
+           
+        </ul>
+      </nav>
+       <!-- Menu Toggle Button -->
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">
+        <div class="hamburger">
+          <!-- Hamburger icon  -->
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+          <div class="hamburger-line"></div>
+        </div>
+      </button>
+    </div>  
+  </header>
+ 
+  <!-- ---------------- carousel section ---------------- -->
+  <div class="position-relative" id="home"> 
+
+    <!-- welcome msg on carousel -->
+    <div class="carousel-title-overlay text-center" id="welcomeMsg">
+      Welcome to Wiwara Grampanchayat
+    </div>
+
+    <!-- Buttom menu btn on carousel -->
+    <div class="info-overlay">
+      <!-- Each info box with icon and label -->
+      <div class="info-box" ><i class="bi bi-people-fill"></i><div id="infoCommunity">Community</div></div>
+      <div class="info-box"><i class="bi bi-water"></i><div id="infoWater">Water</div></div>
+      <div class="info-box"><i class="bi bi-file-earmark-text"></i><a href="#documents-section" style="text-decoration: none; color: white;"><div id="infoDocuments">Documents</div></a></div>
+      <div class="info-box"><i class="bi bi-megaphone"></i><div id="infoNews">News</div></div>
+    </div>
+
+    <!-- Bootstrap Carousel for Image Slider -->
+    <div id="carouselExample" class="carousel-slide" data-bs-ride="carousel">
+      
+      <!-- Carousel Image Slides -->
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="./assets/image/village4.jpg" class="d-block w-100" alt="Village" />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/image/shared image.jpeg" class="d-block w-100" alt="Village" />
+        </div>
+        <div class="carousel-item">
+          <img src="./assets/image/village4.jpg" class="d-block w-100" alt="Village" />
+        </div>
+      </div>
+
+      <!-- Carousel Previous Button -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <!-- Carousel Next Button -->
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ---------------- Marquee ---------------- -->
+  <div class="ticker-container">
+    <!-- Scrolling Text for Announcements -->
+    <div class="ticker-text" id="tickerText">
+      Welcome to Wiwara Grampanchayat. Stay tuned for the latest updates and schemes! • 
+      Water supply maintenance scheduled on 15th June • 
+      Property tax deadline: 30th June • 
+      Stay informed!
+    </div>
+    
+  </div>
+
+  <!--------------------------- Schemes-sections ------------------->
+
+  <section id="schemes" class="py-5 bg-light text-center">
+    <div class="header">
+      <h1 class="main-title" id="schemeTitle">Current Government Schemes</h1>
+      <p id="schemeSubtitle">Active 2025-26 schemes empowering our village community</p>
+    </div>
+  
+    <div class="tabs">
+      <div class="tab active" onclick="filter('all')" id="tabAll">All</div>
+      <div class="tab" onclick="filter('agri')" id="tabAgri">Agriculture</div>
+      <div class="tab" onclick="filter('infra')" id="tabInfra">Infrastructure</div>
+      <div class="tab" onclick="filter('social')" id="tabSocial">Social Welfare</div>
+    </div>
+
+  
+  
+    <section class="grid" id="schemes-grid">
+      <!-- Agriculture cards-->
+      <!-- Scheme 1 -->
+<div class="scheme-card agri">
+  <i class="fas fa-tractor icon-agri"></i>
+  <h3 id="scheme1Title">PM Dhan‑Dhaanya Krishi Yojana</h3>
+  <p id="scheme1Desc">
+    Boosts sustainable farming in 100 low‑productivity districts for 1.7 crore farmers
+  </p>
+  <div class="btn-group">
+    <button class="btn-learn" id="scheme1Learn">Learn More</button>
+    <button class="btn-apply" id="scheme1Apply">Apply Now</button>
+  </div>
+</div>
+
+<!-- Scheme 2 -->
+<div class="scheme-card agri">
+  <i class="fas fa-seedling icon-agri"></i>
+  <h3 id="scheme2Title">Aatmanirbharta in Pulses Mission</h3>
+  <p id="scheme2Desc">
+    6‑year mission enhancing pulses production, storage & pricing
+  </p>
+  <div class="btn-group">
+    <button class="btn-learn" id="scheme2Learn">Learn More</button>
+    <button class="btn-apply" id="scheme2Apply">Apply Now</button>
+  </div>
+</div>
+
+
+      <!-- Infrastructure cards-->
+     <!-- Infra Scheme 1 -->
+<div class="scheme-card infra">
+  <i class="fas fa-wifi icon-infra"></i>
+  <h3 id="infra1Title">National Broadband Mission 2.0</h3>
+  <p id="infra1Desc">
+    High‑speed broadband to 2.7 lakh villages & Panchayat offices by 2030
+  </p>
+  <div class="btn-group">
+    <button class="btn-learn" id="infra1Learn">Learn More</button>
+    <button class="btn-apply" id="infra1Apply">Apply Now</button>
+  </div>
+</div>
+
+<!-- Infra Scheme 2 -->
+<div class="scheme-card infra">
+  <i class="fas fa-map-marked-alt icon-infra"></i>
+  <h3 id="infra2Title">SVAMITVA Scheme</h3>
+  <p id="infra2Desc">Drone‑mapping & property cards in villages; 1.12cr cards issued</p>
+  <div class="btn-group">
+    <button class="btn-learn" id="infra2Learn">Learn More</button>
+    <button class="btn-apply" id="infra2Apply">Apply Now</button>
+  </div>
+</div>
+
+<!-- Infra Scheme 3 -->
+<div class="scheme-card infra">
+  <i class="fas fa-faucet icon-infra"></i>
+  <h3 id="infra3Title">Jal Jeevan Mission (Har Ghar Jal)</h3>
+  <p id="infra3Desc">Tap‑water connections to all rural homes by 2028</p>
+  <div class="btn-group">
+    <button class="btn-learn" id="infra3Learn">Learn More</button>
+    <button class="btn-apply" id="infra3Apply">Apply Now</button>
+  </div>
+</div>
+
+
+      <!-- Social Welfare cards-->
+     <!-- Social Welfare Scheme 1 -->
+<div class="scheme-card social">
+  <i class="fas fa-hand-holding-heart icon-social"></i>
+  <h3 id="social1Title">Nari Shakti Yojana</h3>
+  <p id="social1Desc">Loans up to ₹25 lakh for women‑led MSMEs & SHGs</p>
+  <div class="btn-group">
+    <button class="btn-learn" id="social1Learn">Learn More</button>
+    <button class="btn-apply" id="social1Apply">Apply Now</button>
+  </div>
+</div>
+
+<!-- Social Welfare Scheme 2 -->
+<div class="scheme-card social">
+  <i class="fas fa-baby icon-social"></i>
+  <h3 id="social2Title">Saksham Anganwadi & Poshan 2.0</h3>
+  <p id="social2Desc">Nutritional support to 8cr children & 1cr mothers</p>
+  <div class="btn-group">
+    <button class="btn-learn" id="social2Learn">Learn More</button>
+    <button class="btn-apply" id="social2Apply">Apply Now</button>
+  </div>
+</div>
+
+<!-- Social Welfare Scheme 3 -->
+<div class="scheme-card social">
+  <i class="fas fa-utensils icon-social"></i>
+  <h3 id="social3Title">PM Garib Kalyan Anna Yojana</h3>
+  <p id="social3Desc">Free food‑grain to 81cr people through Dec 2028</p>
+  <div class="btn-group">
+    <button class="btn-learn" id="social3Learn">Learn More</button>
+    <button class="btn-apply" id="social3Apply">Apply Now</button>
+  </div>
+</div>
+
+    </section>
+    </div>
+
+    <!------------------- member ---------------- -->
+  
+    <div class="header" id="member">
+      <h1 class="main-title" id="memberHeading">Our Gram Panchayat Members</h1>
+    </div>
+    
+    <div class="primary-section">
+      <div class="primary-members">
+        
+        <!-- Member 1 -->
+        <div class="member-card fade-in">
+          <div class="member-photo">
+            <img src="https://www.shutterstock.com/image-photo/headshot-portrait-confident-young-indian-600nw-2021632466.jpg" alt="Gram Sevak" />
+          </div>
+          <div class="member-name" id="member1Name">Rina Kumbhare</div>
+          <div class="member-position" id="member1Post">Secretary</div>
+        </div>
+    
+        <!-- Member 2 -->
+        <div class="member-card fade-in">
+          <div class="member-photo">
+            <img src="https://www.shutterstock.com/image-photo/young-businessman-head-shot-portrait-260nw-2576179275.jpg" alt="Sarpanch" />
+          </div>
+          <div class="member-name" id="member2Name">Saksham Kumar</div>
+          <div class="member-position" id="member2Post">Sarpanch</div>
+        </div>
+    
+        <!-- Member 3 -->
+        <div class="member-card fade-in">
+          <div class="member-photo">
+            <img src="https://t4.ftcdn.net/jpg/04/31/64/75/360_F_431647519_usrbQ8Z983hTYe8zgA7t1XVc5fEtqcpa.jpg" alt="Deputy Sarpanch" />
+          </div>
+          <div class="member-name" id="member3Name">Vikram Singh</div>
+          <div class="member-position" id="member3Post">Deputy Sarpanch</div>
+        </div>
+    
+      </div>
+    </div>
+    
+            <!-- other members -->
+         <div class="other-section">
+                <h2 class="second-title" id="deptRepHeading">Department Representatives</h2>
+                <div class="other-members-grid">
+              
+                  <div class="other-member-card fade-in">
+                    <div class="other-member-icon">
+                      <i class="fas fa-users"></i>
+                    </div>
+                    <div class="other-member-title" id="wardMembersTitle">Ward Members</div>
+                    <div class="other-member-description" id="wardMembersDesc">
+                      Representative members from each village ward ensuring local governance
+                    </div>
+                  </div>
+              
+                  <div class="other-member-card fade-in">
+                    <div class="other-member-icon">
+                      <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="other-member-title" id="talathiTitle">Talathi</div>
+                    <div class="other-member-description" id="talathiDesc">
+                      Village land records officer managing property documentation
+                    </div>
+                  </div>
+              
+                  <div class="other-member-card fade-in">
+                    <div class="other-member-icon">
+                      <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="other-member-title" id="healthWorkerTitle">Health Worker</div>
+                    <div class="other-member-description" id="healthWorkerDesc">
+                      Primary healthcare services and community health programs
+                    </div>
+                  </div>
+              
+                  <div class="other-member-card fade-in">
+                    <div class="other-member-icon">
+                      <i class="fas fa-baby"></i>
+                    </div>
+                    <div class="other-member-title" id="anganwadiTitle">Anganwadi Sevika</div>
+                    <div class="other-member-description" id="anganwadiDesc">
+                      Child development and nutrition programs coordinator
+                    </div>
+                  </div>
+              
+                  <div class="other-member-card fade-in">
+                    <div class="other-member-icon">
+                      <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="other-member-title" id="rozgarSevakTitle">Rozgar Sevak</div>
+                    <div class="other-member-description" id="rozgarSevakDesc">
+                      Employment schemes and rural development programs
+                    </div>
+                  </div>
+              
+                  <div class="other-member-card fade-in">
+                    <div class="other-member-icon">
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="other-member-title" id="eduCommitteeTitle">Education Committee</div>
+                    <div class="other-member-description" id="eduCommitteeDesc">
+                      Village education oversight and school management
+                    </div>
+                  </div>
+              
+                  <div class="other-member-card fade-in">
+                    <div class="other-member-icon">
+                      <i class="fas fa-broom"></i>
+                    </div>
+                    <div class="other-member-title" id="sanitationTitle">Sanitation Committee</div>
+                    <div class="other-member-description" id="sanitationDesc">
+                      Village cleanliness and waste management initiatives
+                    </div>
+                  </div>
+              
+                  <div class="other-member-card fade-in">
+                    <div class="other-member-icon">
+                      <i class="fas fa-clipboard"></i>
+                    </div>
+                    <div class="other-member-title" id="clerkTitle">Panchayat Clerk</div>
+                    <div class="other-member-description" id="clerkDesc">
+                      Administrative support and documentation services
+                </div>
+                  </div>
+                </div>
+              </div>
+              
+  </section>
+ 
+<!-------------------- services -------------------->
+
+<section id="services" class="py-5 bg-light text-center">
+  <div class="services-main-container">
+    <div class="header">
+      <h1 class="main-title" id="servicesMainTitle">Our Gram Panchayat Services</h1>
+    </div>
+
+    <div class="services-container">
+      <div class="sidebar">
+        <h2 id="servicesSidebarHeading">🛠 Services</h2>
+
+        <button id="birthBtn" class="service-btn active" onclick="showService('birth', event)">👶 Birth Certificate</button>
+        <button id="deathBtn" class="service-btn" onclick="showService('death', event)">⚰️ Death Certificate</button>
+        <button id="waterBtn" class="service-btn" onclick="showService('water', event)">🚰 Water Connection</button>
+        <button id="marriageBtn" class="service-btn" onclick="showService('marriage', event)">💍 Marriage Certificate</button>
+        <button id="taxBtn" class="service-btn" onclick="showService('tax', event)">🏠 House Tax</button>
+        <button id="aadharBtn" class="service-btn" onclick="showService('aadhar', event)">🆔 Aadhar / Voter Help</button>
+        <button id="grievanceBtn" class="service-btn" onclick="showService('grievance', event)">📢 Grievance Form</button>
+        <button id="lightingBtn" class="service-btn" onclick="showService('lighting', event)">💡 Sanitation & Lighting</button>
+        <button id="casteBtn" class="service-btn" onclick="showService('caste', event)">📑 Domicile/Income/Caste</button>
+        <button id="rtiBtn" class="service-btn" onclick="showService('rti', event)">📄 RTI Request</button>
+      </div>
+
+      <div class="services-content" id="service-info">
+        <!-- Default content will load here -->
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <script>
+  // Service data for each type
+  const data = { 
+  
+    birth: {
+      id:one,
+      birthEnglish:{
+      title: "Birth Certificate",
+      desc: "Used for official birth registration. Required for school, ID, and government schemes.",
+      docs: ["Hospital birth certificate", "Parents' Aadhar cards", "Address proof", "Filled application form"],
+      process: "Submit the form and documents at the Gram Panchayat. Certificate issued within 7 days.",
+      fees: "Free within 21 days, ₹50 after 21 days.",
+      applyLink: "#apply-birth",
+      formLink: "#form-birth",
+    },
+  
+    birthHindi:{
+    title: "जन्म प्रमाण पत्र",
+    desc: "आधिकारिक जन्म पंजीकरण के लिए उपयोग किया जाता है। स्कूल, आईडी और सरकारी योजनाओं के लिए आवश्यक।",
+    docs: [
+      "अस्पताल जन्म प्रमाण पत्र",
+      "माता-पिता का आधार कार्ड",
+      "पता प्रमाण",
+      "भरा हुआ आवेदन पत्र"
+    ],
+    process: "फॉर्म और दस्तावेज ग्राम पंचायत में जमा करें। प्रमाण पत्र 7 दिनों में जारी होगा।",
+    fees: "21 दिनों के भीतर निःशुल्क, उसके बाद ₹50।",
+    applyBtn: "अभी आवेदन करें",
+    formBtn: "फॉर्म डाउनलोड करें" ,
+  }
+
+  },
+   death: {
+      title: "Death Certificate",
+      desc: "Proof of a person's death. Used for legal and financial matters like pension, insurance.",
+      docs: ["Medical certificate of death", "Aadhar card of deceased", "Applicant ID proof", "Filled application form"],
+      process: "Submit documents to Panchayat. Certificate issued within 5–10 days.",
+      fees: "₹50",
+      applyLink: "#apply-death",
+      formLink: "#form-death",
+    },
+    water: {
+      title: "Water Connection",
+      desc: "Apply for new or modified water supply connections for home or farm.",
+      docs: ["Property proof", "ID proof", "Electricity bill", "Filled application form"],
+      process: "Submit documents. Connection will be inspected and installed within 15 working days.",
+      fees: "₹300 + installation charges",
+      applyLink: "#apply-water",
+      formLink: "#form-water",
+    },
+    marriage: {
+      title: "Marriage Certificate",
+      desc: "Legal document verifying marriage. Required for visa, bank, and legal purposes.",
+      docs: ["Marriage invitation/photo", "Bride and groom ID proof", "2 witnesses' IDs", "Photos", "Filled form"],
+      process: "Submit documents. Certificate issued after 7–10 days verification.",
+      fees: "₹100",
+      applyLink: "#apply-marriage",
+      formLink: "#form-marriage",
+    },
+    tax: {
+      title: "House Tax",
+      desc: "Check and pay property/house tax. View receipts and clear dues.",
+      docs: ["House number or property ID", "Owner ID proof", "Old tax receipt"],
+      process: "Available at Gram Panchayat or online portal. Instant payment & receipt.",
+      fees: "Based on area & property type",
+      applyLink: "#apply-tax",
+      formLink: "#form-tax",
+    },
+    aadhar: {
+      title: "Aadhar / Voter Help",
+      desc: "Help with new applications, corrections or updates in Aadhar or Voter ID.",
+      docs: ["Old Aadhar/Voter ID", "DOB proof", "Address proof", "Photo"],
+      process: "Walk-in to Panchayat center. Updates done in 7–15 days.",
+      fees: "₹50 for correction",
+      applyLink: "#apply-aadhar",
+      formLink: "#form-aadhar",
+    },
+    grievance: {
+      title: "Grievance Form",
+      desc: "Submit complaints about sanitation, roads, electricity, or local issues.",
+      docs: ["ID proof", "Issue details", "Location photo (if available)"],
+      process: "Submit at Panchayat. Issue acknowledged in 5 days, resolved soon.",
+      fees: "No charges",
+      applyLink: "#apply-grievance",
+      formLink: "#form-grievance",
+    },
+    lighting: {
+      title: "Sanitation & Lighting",
+      desc: "Request new streetlights, garbage collection, or public toilet repairs.",
+      docs: ["Request letter", "Location address", "Photos (if possible)"],
+      process: "Field visit within 5–7 days, action initiated accordingly.",
+      fees: "Free",
+      applyLink: "#apply-lighting",
+      formLink: "#form-lighting",
+    },
+    caste: {
+      title: "Domicile / Income / Caste",
+      desc: "Apply for essential certificates required for education, jobs, and schemes.",
+      docs: ["Aadhar card", "Ration card", "School bonafide", "Caste proof"],
+      process: "Verification done by officials. Issued within 10–15 working days.",
+      fees: "₹30 per certificate",
+      applyLink: "#apply-caste",
+      formLink: "#form-caste",
+    },
+    rti: {
+      title: "RTI Request",
+      desc: "File an RTI to access official Panchayat records or decisions.",
+      docs: ["ID proof", "Detailed request letter", "RTI application form"],
+      process: "Reply given within 30 days of submission as per RTI Act.",
+      fees: "₹10 (RTI filing fee)",
+      applyLink: "#apply-rti",
+      formLink: "#form-rti",
+    }
+  };
+
+  // 🔧 Function to show selected service data
+  function showService(key, e) {
+    // Remove 'active' class from all buttons
+    document.querySelectorAll('.service-btn').forEach(btn => btn.classList.remove('active'));
+
+    // Add 'active' class to clicked button
+    if (e) e.target.classList.add('active');
+
+    // Get selected service data
+    const s = data[key];
+
+    // Inject data into the right section
+    document.getElementById('service-info').innerHTML = `
+      <h3>${s.title}</h3>
+      <div class="section-block">
+        <p>${s.desc}</p>
+      </div>
+      <div class="section-block">
+        <h4>📄 Required Documents:</h4>
+        <ul class="document-list">
+          ${s.docs.map(doc => `<li>✅ ${doc}</li>`).join('')}
+        </ul>
+      </div>
+      <div class="section-block">
+        <h4>🛠️ Process:</h4>
+        <p>${s.process}</p>
+      </div>
+      <div class="section-block">
+        <h4>💰 Fees:</h4>
+        <p>${s.fees}</p>
+      </div>
+      <div class="btn-group">
+        <a href="${s.applyLink}">📝 Apply Now</a>
+        <a href="${s.formLink}">📄 Download Form</a>
+      </div>
+    `;
+  }
+
+  // ✅ Show Birth Certificate by default when page loads
+  window.addEventListener('DOMContentLoaded', function () {
+    showService('birth'); // default service to show on blank page
+  });
+
+  // 🌙 Optional: Dark mode toggle
+  function toggleDarkMode() {
+    document.body.classList.toggle('dark');
+  }
+</script>
+
+   <!----------------------- document ----------------------------->                                                                                                                                                
+  <section id="documents-section" class="py-5 bg-light text-center">
+    <!-- Header Section -->
+    <div class="header">
+      <h1 class="main-title">Official Gram Panchayat Documents</h1>
+      <p>Access Transparent and Up-to-Date Governance Records</p>
+    </div>
+    <!-- Cards Grid Section -->
+    <section class="document-container">
+      <div class="doc-grid">
+        <!-- Card 1 -->
+        <div class="doc-card">
+          <i class="fas fa-file-invoice-dollar icon-green"></i>
+          <h3>Annual Budget Report</h3>
+          <p>
+            Detailed income and expenditure data for FY 2024–25, including
+            scheme-wise allocations.
+          </p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="doc-card">
+          <i class="fas fa-file-alt icon-purple"></i>
+          <h3>Gram Sabha Minutes</h3>
+          <p>
+            Summary of key discussions and decisions from recent meetings held
+            this year.
+          </p>
+          <a href="#" class="download-btn"><i class="fas fa-eye"></i> View Minutes</a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="doc-card">
+          <i class="fas fa-chart-line icon-orange"></i>
+          <h3>Scheme Implementation</h3>
+          <p>
+            Live tracking of scheme benefits, fund utilization, and progress
+            reports from 2023–2025.
+          </p>
+          <a href="#" class="download-btn"><i class="fas fa-file"></i> See Report</a>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="doc-card">
+          <i class="fas fa-balance-scale icon-green"></i>
+          <h3>Financial Audit</h3>
+          <p>
+            Verified audit statements and compliance reports submitted to the
+            Zilla Parishad.
+          </p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download File</a>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="doc-card">
+          <i class="fas fa-home icon-brown"></i>
+          <h3>Land & Property Records</h3>
+          <p>
+            Digitized property ownership, mutation entries, tax dues, and
+            transfer logs.
+          </p>
+          <a href="#" class="download-btn"><i class="fas fa-search"></i> Check Records</a>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="doc-card">
+          <i class="fas fa-water icon-teal"></i>
+          <h3>Water Usage Report</h3>
+          <p>
+            Annual report of water supply management under Har Ghar Jal Mission.
+          </p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="doc-card">
+          <i class="fas fa-baby icon-blue"></i>
+          <h3>Birth Registration Records</h3>
+          <p>
+            Official list of newborns in the village for the current and past
+            year with ID info.
+          </p>
+          <a href="#" class="download-btn"><i class="fas fa-eye"></i> View Birth Data</a>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="doc-card">
+          <i class="fas fa-cross icon-blue"></i>
+          <h3>Death Certificate Register</h3>
+          <p>
+            List of issued death certificates and demographic updates maintained
+            monthly.
+          </p>
+          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Records</a>
+        </div>
+      </div>
+    </section>
+  </section>
+  
+<!--------------------- about-------------------->
+  <section id="about" class="py-5 bg-light text-center">
+    <div class="container">
+      <div class="header">
+        <h1 class="main-title">About Village</h1>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="./assets/image/shared image.jpeg" alt="Village Image" class="about-image">
+        </div>
+        <div class="col-md-6 about-text">
+          <p>
+            Gram Panchayat is a vibrant village located in the heart of Maharashtra. With a legacy of unity,
+            agriculture, and development, we are committed to making our village smart, sustainable, and self-reliant.
+          </p>
+          <ul>
+            <li>Strong community participation</li>
+            <li>Award-winning water conservation programs</li>
+            <li>100% digital birth/death certificate system</li>
+            <li>Fully connected village with Wi-Fi</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Modern Info Cards Section -->
+      <div class="row mt-4">
+        <!-- card-1 -->
+        <div class="col-md-4">
+          <div class="custom-card">
+            <div class="card-header">
+              <i class="bi bi-geo-alt-fill"></i>
+            </div>
+            <div class="card-body">
+              <h5>Location</h5>
+              <p>Located in the heart of Maharashtra, our village is known for its rich culture and agricultural
+                excellence.</p>
+            </div>
+          </div>
+        </div>
+        <!-- card-2 -->
+        <div class="col-md-4">
+          <div class="custom-card">
+            <div class="card-header">
+              <i class="bi bi-clock-history"></i>
+            </div>
+            <div class="card-body">
+              <h5>History</h5>
+              <p>Established in the 1800s, the village has a long-standing heritage of community and cooperation.</p>
+            </div>
+          </div>
+        </div>
+        <!-- card-3 -->
+        <div class="col-md-4">
+          <div class="custom-card">
+            <div class="card-header">
+              <i class="bi bi-flower2"></i>
+            </div>
+            <div class="card-body">
+              <h5>Culture</h5>
+              <p>Festivals, traditions, and unity are the soul of our vibrant rural life.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  </section>
+<!-- contact -->
+  <section id="contact" class="py-5 text-center">
+    <div class="header">
+      <h1 class="main-title">Wiwara Grampanchayat</h1>
+    </div>
+    <div class="container">
+      <h2>📬 Contact Us</h2>
+      <div class="contact-section">
+        <div class="info-card">
+          <h3>🏢 Grampanchayat Office</h3>
+          <p>📍 Wiwara Village, Taluka Narkhed,<br>District Nagpur, Maharashtra</p>
+          <p>📞 <strong>Phone:<a href="tel:+919373561415"></a></strong>+91-9373561415</p> 
+          <p>📧 <strong>Email:</strong> info@wiwarapanchayat.in</p>
+          <p>⏰ <strong>Office Hours:</strong> Mon - Sat: 10:00 AM - 5:00 PM</p>
+        </div>
+
+        <form class="form-card">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.2408301672678!2d78.4784541104724!3d21.35628161109559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd451fc2d421801%3A0xed4d79c09dfe4bc0!2sWiwara%2C%20Maharashtra%20441305!5e0!3m2!1sen!2sin!4v1752747586439!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </form>
+      </div>
+      
+  </section>
+
+  <footer>
+      <div
+        style="
+          max-width: 1200px;
+          margin: auto;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          gap: 20px;
+        "
+      >
+        <div style="flex: 1 1 250px">
+          <h3><i class="fas fa-leaf"></i> Wiwara Grampanchayat</h3>
+          <p>
+            Serving the community with commitment and care. Reach out anytime —
+            we're here for you.
+          </p>
+        </div>
+        <div style="flex: 1 1 250px">
+          <h4><i class="fas fa-link"></i> Quick Links</h4>
+          <ul>
+            <li>
+              <a href="#home"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li>
+              <a href="#services"
+                ><i class="fas fa-concierge-bell"></i> Services</a
+              >
+            </li>
+            <li>
+              <a href="#contact"
+                ><i class="fas fa-envelope-open-text"></i> Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div style="flex: 1 1 250px">
+          <h4><i class="fas fa-users"></i> Connect With Us</h4>
+          <p>
+            <i class="fab fa-facebook-square"></i> Facebook |
+            <i class="fab fa-instagram"></i> Instagram |
+            <i class="fab fa-twitter"></i> Twitter
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:info@wiwarapanchayat.in">info@wiwarapanchayat.in</a>
+          </p>
+          <p>
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:+919373561415">+91-9373561415</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="./assets/js/english.js"></script>
+  <script src="./assets/js/hindi.js"></script>
+  <script src="./assets/js/marathi.js"></script>
+<script>
+  const translate = {
+    hindi : hindiData,
+    english : englishData,
+    marathi : marathiData
+  
+   };
+   function translateLanguage() {
+   const selectLanguage = 
+  document.getElementById("select-lang").value;
+  let data = translate[selectLanguage];
+
+// navbar section
+    document.getElementById("govBar").innerHTML = data.govBar;
+    document.getElementById("logoTitle").innerHTML = data.logoTitle;
+    document.getElementById("logoSubtitle").innerHTML = data.logoSubtitle;
+    document.getElementById("homeLink").innerHTML = data.homeLink;
+    document.getElementById("schemesLink").innerHTML = data.schemesLink;
+    document.getElementById("memberLink").innerHTML = data.memberLink;
+    document.getElementById("servicesLink").innerHTML = data.servicesLink;
+    document.getElementById("aboutLink").innerHTML = data.aboutLink;
+    document.getElementById("contactLink").innerHTML = data.contactLink;
+// hone section
+    document.getElementById("welcomeMsg").innerHTML = data.welcomeMsg;
+    document.getElementById("infoCommunity").innerHTML = data.infoCommunity;
+    document.getElementById("infoWater").innerHTML = data.infoWater;
+    document.getElementById("infoDocuments").innerHTML = data.infoDocuments;
+    document.getElementById("infoNews").innerHTML = data.infoNews;
+// marque section
+    document.getElementById("tickerText").innerHTML = data.tickerText;
+
+// scheame section 
+  document.getElementById("schemeTitle").innerText = data.schemeTitle;
+  document.getElementById("schemeSubtitle").innerText = data.schemeSubtitle;
+  document.getElementById("tabAll").innerText = data.tabAll;
+  document.getElementById("tabAgri").innerText = data.tabAgri;
+  document.getElementById("tabInfra").innerText = data.tabInfra;
+  document.getElementById("tabSocial").innerText = data.tabSocial;
+
+// Scheme 1
+document.getElementById("scheme1Title").innerHTML = data.scheme1Title;
+document.getElementById("scheme1Desc").innerHTML = data.scheme1Desc;
+document.getElementById("scheme1Learn").innerHTML = data.scheme1Learn;
+document.getElementById("scheme1Apply").innerHTML = data.scheme1Apply;
+
+// Scheme 2
+document.getElementById("scheme2Title").innerHTML = data.scheme2Title;
+document.getElementById("scheme2Desc").innerHTML = data.scheme2Desc;
+document.getElementById("scheme2Learn").innerHTML = data.scheme2Learn;
+document.getElementById("scheme2Apply").innerHTML = data.scheme2Apply;
+
+// Infra Scheme 1
+document.getElementById("infra1Title").innerHTML = data.infra1Title;
+document.getElementById("infra1Desc").innerHTML = data.infra1Desc;
+document.getElementById("infra1Learn").innerHTML = data.infra1Learn;
+document.getElementById("infra1Apply").innerHTML = data.infra1Apply;
+
+// Infra Scheme 2
+document.getElementById("infra2Title").innerHTML = data.infra2Title;
+document.getElementById("infra2Desc").innerHTML = data.infra2Desc;
+document.getElementById("infra2Learn").innerHTML = data.infra2Learn;
+document.getElementById("infra2Apply").innerHTML = data.infra2Apply;
+
+// Infra Scheme 3
+document.getElementById("infra3Title").innerHTML = data.infra3Title;
+document.getElementById("infra3Desc").innerHTML = data.infra3Desc;
+document.getElementById("infra3Learn").innerHTML = data.infra3Learn;
+document.getElementById("infra3Apply").innerHTML = data.infra3Apply;
+
+// Social Scheme 1
+document.getElementById("social1Title").innerHTML = data.social1Title;
+document.getElementById("social1Desc").innerHTML = data.social1Desc;
+document.getElementById("social1Learn").innerHTML = data.social1Learn;
+document.getElementById("social1Apply").innerHTML = data.social1Apply;
+
+// Social Scheme 2
+document.getElementById("social2Title").innerHTML = data.social2Title;
+document.getElementById("social2Desc").innerHTML = data.social2Desc;
+document.getElementById("social2Learn").innerHTML = data.social2Learn;
+document.getElementById("social2Apply").innerHTML = data.social2Apply;
+
+// Social Scheme 3
+document.getElementById("social3Title").innerHTML = data.social3Title;
+document.getElementById("social3Desc").innerHTML = data.social3Desc;
+document.getElementById("social3Learn").innerHTML = data.social3Learn;
+document.getElementById("social3Apply").innerHTML = data.social3Apply;
+// main-members section
+ document.getElementById("memberHeading").innerHTML = data.memberHeading;
+  document.getElementById("member1Name").innerHTML = data.member1Name;
+  document.getElementById("member1Post").innerHTML = data.member1Post;
+  document.getElementById("member2Name").innerHTML = data.member2Name;
+  document.getElementById("member2Post").innerHTML = data.member2Post;
+  document.getElementById("member3Name").innerHTML = data.member3Name;
+  document.getElementById("member3Post").innerHTML = data.member3Post;
+// other members section
+document.getElementById("deptRepHeading").innerHTML = data.deptRepHeading;
+document.getElementById("wardMembersTitle").innerHTML = data.wardMembersTitle;
+document.getElementById("wardMembersDesc").innerHTML = data.wardMembersDesc;
+document.getElementById("talathiTitle").innerHTML = data.talathiTitle;
+document.getElementById("talathiDesc").innerHTML = data.talathiDesc;
+document.getElementById("healthWorkerTitle").innerHTML = data.healthWorkerTitle;
+document.getElementById("healthWorkerDesc").innerHTML = data.healthWorkerDesc;
+document.getElementById("anganwadiTitle").innerHTML = data.anganwadiTitle;
+document.getElementById("anganwadiDesc").innerHTML = data.anganwadiDesc;
+document.getElementById("rozgarSevakTitle").innerHTML = data.rozgarSevakTitle;
+document.getElementById("rozgarSevakDesc").innerHTML = data.rozgarSevakDesc;
+document.getElementById("eduCommitteeTitle").innerHTML = data.eduCommitteeTitle;
+document.getElementById("eduCommitteeDesc").innerHTML = data.eduCommitteeDesc;
+document.getElementById("sanitationTitle").innerHTML = data.sanitationTitle;
+document.getElementById("sanitationDesc").innerHTML = data.sanitationDesc;
+document.getElementById("clerkTitle").innerHTML = data.clerkTitle;
+document.getElementById("clerkDesc").innerHTML = data.clerkDesc;
+// services section 
+document.getElementById("servicesMainTitle").innerText = data.servicesMainTitle;
+document.getElementById("servicesSidebarHeading").innerText = data.servicesSidebarHeading;
+document.getElementById("birthBtn").innerText = data.birthBtn;
+document.getElementById("deathBtn").innerText = data.deathBtn;
+document.getElementById("waterBtn").innerText = data.waterBtn;
+document.getElementById("marriageBtn").innerText = data.marriageBtn;
+document.getElementById("taxBtn").innerText = data.taxBtn;
+document.getElementById("aadharBtn").innerText = data.aadharBtn;
+document.getElementById("grievanceBtn").innerText = data.grievanceBtn;
+document.getElementById("lightingBtn").innerText = data.lightingBtn;
+document.getElementById("casteBtn").innerText = data.casteBtn;
+document.getElementById("rtiBtn").innerText = data.rtiBtn;
+document.getElementById("one").innerText = data.one;
+
+}
+    </script>
+ 
+</body>
+
+</html>  
