@@ -106,7 +106,7 @@ function filter(category) {
         });
       });
 
-    // services -------------------------------------------
+   
       const data = {
         // birth certificate
         birth: {
@@ -209,6 +209,9 @@ function filter(category) {
           formLink:"#form-rti"
         }
       };
+      
+
+      
 // function for show services
       function showService(key, e) {
         document.querySelectorAll('.service-btn').forEach(btn => btn.classList.remove('active'));

@@ -108,7 +108,76 @@ const englishData = {
   lightingBtn: "💡 Sanitation & Lighting",
   casteBtn: "📑 Domicile/Income/Caste",
   rtiBtn: "📄 RTI Request",
-  // birth certificate
+
   
+// document section
+  documentsMainTitle: "Official Gram Panchayat Documents",
+    documentsMainSubtitle: "Access Transparent and Up-to-Date Governance Records",
+
+    annualBudgetTitle: "Annual Budget Report",
+    annualBudgetDesc: "Detailed income and expenditure data for FY 2024–25, including scheme-wise allocations.",
+    annualBudgetBtn: "Download PDF",
+
+    gramSabhaTitle: "Gram Sabha Minutes",
+    gramSabhaDesc: "Summary of key discussions and decisions from recent meetings held this year.",
+    gramSabhaBtn: "View Minutes",
+
+    schemeImplTitle: "Scheme Implementation",
+    schemeImplDesc: "Live tracking of scheme benefits, fund utilization, and progress reports from 2023–2025.",
+    schemeImplBtn: "See Report",
+
+    financialAuditTitle: "Financial Audit",
+    financialAuditDesc: "Verified audit statements and compliance reports submitted to the Zilla Parishad.",
+    financialAuditBtn: "Download File",
+
+    landRecordsTitle: "Land & Property Records",
+    landRecordsDesc: "Digitized property ownership, mutation entries, tax dues, and transfer logs.",
+    landRecordsBtn: "Check Records",
+
+    waterUsageTitle: "Water Usage Report",
+    waterUsageDesc: "Annual report of water supply management under Har Ghar Jal Mission.",
+    waterUsageBtn: "Download",
+
+    birthRegTitle: "Birth Registration Records",
+    birthRegDesc: "Official list of newborns in the village for the current and past year with ID info.",
+    birthRegBtn: "View Birth Data",
+
+    deathCertTitle: "Death Certificate Register",
+    deathCertDesc: "List of issued death certificates and demographic updates maintained monthly.",
+    deathCertBtn: "Download Records",
+// about section 
+    aboutMainTitle: "About Village",
+    aboutDescription: "Gram Panchayat is a vibrant village located in the heart of Maharashtra. With a legacy of unity, agriculture, and development, we are committed to making our village smart, sustainable, and self-reliant.",
+    aboutPoint1: "Strong community participation",
+    aboutPoint2: "Award-winning water conservation programs",
+    aboutPoint3: "100% digital birth/death certificate system",
+    aboutPoint4: "Fully connected village with Wi-Fi",
+    aboutCard1Title: "Location",
+    aboutCard1Desc: "Located in the heart of Maharashtra, our village is known for its rich culture and agricultural excellence.",
+    aboutCard2Title: "History",
+    aboutCard2Desc: "Established in the 1800s, the village has a long-standing heritage of community and cooperation.",
+    aboutCard3Title: "Culture",
+    aboutCard3Desc: "Festivals, traditions, and unity are the soul of our vibrant rural life.",
+// contact section
+    contactTitle: "Wiwara Grampanchayat",
+  contactHeading: "📬 Contact Us",
+  officeTitle: "🏢 Grampanchayat Office",
+  officeAddress: "📍 Wiwara Village, Taluka Narkhed,<br>District Nagpur, Maharashtra",
+  phoneLabel: "Phone:",
+  phoneNumber: "+91-9373561415",
+  emailLabel: "Email:",
+  officeHours: "⏰ Office Hours: Mon - Sat: 10:00 AM - 5:00 PM",
+
+// footer section
+footerTitle: "Wiwara Grampanchayat",
+footerDesc: "Serving the community with commitment and care. Reach out anytime — we're here for you.",
+linksTitle: "Quick Links",
+home: "Home",
+services: "Services",
+contact: "Contact",
+connectTitle: "Connect With Us",
+social: "Facebook | Instagram | Twitter",
+email: "info@wiwarapanchayat.in",
+phone: "+91-9373561415"
  
 }

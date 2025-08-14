@@ -418,133 +418,126 @@
 
 
   <script>
-  // Service data for each type
-  const data = { 
+ 
+  // const data = { 
   
-    birth: {
-      id:one,
-      birthEnglish:{
-      title: "Birth Certificate",
-      desc: "Used for official birth registration. Required for school, ID, and government schemes.",
-      docs: ["Hospital birth certificate", "Parents' Aadhar cards", "Address proof", "Filled application form"],
-      process: "Submit the form and documents at the Gram Panchayat. Certificate issued within 7 days.",
-      fees: "Free within 21 days, ₹50 after 21 days.",
-      applyLink: "#apply-birth",
-      formLink: "#form-birth",
-    },
+  //   birth: {
+  //     id:one,
+  //     birthEnglish:{
+  //     title: "Birth Certificate",
+  //     desc: "Used for official birth registration. Required for school, ID, and government schemes.",
+  //     docs: ["Hospital birth certificate", "Parents' Aadhar cards", "Address proof", "Filled application form"],
+  //     process: "Submit the form and documents at the Gram Panchayat. Certificate issued within 7 days.",
+  //     fees: "Free within 21 days, ₹50 after 21 days.",
+  //     applyLink: "#apply-birth",
+  //     formLink: "#form-birth",
+  //   },
   
-    birthHindi:{
-    title: "जन्म प्रमाण पत्र",
-    desc: "आधिकारिक जन्म पंजीकरण के लिए उपयोग किया जाता है। स्कूल, आईडी और सरकारी योजनाओं के लिए आवश्यक।",
-    docs: [
-      "अस्पताल जन्म प्रमाण पत्र",
-      "माता-पिता का आधार कार्ड",
-      "पता प्रमाण",
-      "भरा हुआ आवेदन पत्र"
-    ],
-    process: "फॉर्म और दस्तावेज ग्राम पंचायत में जमा करें। प्रमाण पत्र 7 दिनों में जारी होगा।",
-    fees: "21 दिनों के भीतर निःशुल्क, उसके बाद ₹50।",
-    applyBtn: "अभी आवेदन करें",
-    formBtn: "फॉर्म डाउनलोड करें" ,
-  }
+  //   birthHindi:{
+  //   title: "जन्म प्रमाण पत्र",
+  //   desc: "आधिकारिक जन्म पंजीकरण के लिए उपयोग किया जाता है। स्कूल, आईडी और सरकारी योजनाओं के लिए आवश्यक।",
+  //   docs: [
+  //     "अस्पताल जन्म प्रमाण पत्र",
+  //     "माता-पिता का आधार कार्ड",
+  //     "पता प्रमाण",
+  //     "भरा हुआ आवेदन पत्र"
+  //   ],
+  //   process: "फॉर्म और दस्तावेज ग्राम पंचायत में जमा करें। प्रमाण पत्र 7 दिनों में जारी होगा।",
+  //   fees: "21 दिनों के भीतर निःशुल्क, उसके बाद ₹50।",
+  //   applyBtn: "अभी आवेदन करें",
+  //   formBtn: "फॉर्म डाउनलोड करें" ,
+  // }
 
-  },
-   death: {
-      title: "Death Certificate",
-      desc: "Proof of a person's death. Used for legal and financial matters like pension, insurance.",
-      docs: ["Medical certificate of death", "Aadhar card of deceased", "Applicant ID proof", "Filled application form"],
-      process: "Submit documents to Panchayat. Certificate issued within 5–10 days.",
-      fees: "₹50",
-      applyLink: "#apply-death",
-      formLink: "#form-death",
-    },
-    water: {
-      title: "Water Connection",
-      desc: "Apply for new or modified water supply connections for home or farm.",
-      docs: ["Property proof", "ID proof", "Electricity bill", "Filled application form"],
-      process: "Submit documents. Connection will be inspected and installed within 15 working days.",
-      fees: "₹300 + installation charges",
-      applyLink: "#apply-water",
-      formLink: "#form-water",
-    },
-    marriage: {
-      title: "Marriage Certificate",
-      desc: "Legal document verifying marriage. Required for visa, bank, and legal purposes.",
-      docs: ["Marriage invitation/photo", "Bride and groom ID proof", "2 witnesses' IDs", "Photos", "Filled form"],
-      process: "Submit documents. Certificate issued after 7–10 days verification.",
-      fees: "₹100",
-      applyLink: "#apply-marriage",
-      formLink: "#form-marriage",
-    },
-    tax: {
-      title: "House Tax",
-      desc: "Check and pay property/house tax. View receipts and clear dues.",
-      docs: ["House number or property ID", "Owner ID proof", "Old tax receipt"],
-      process: "Available at Gram Panchayat or online portal. Instant payment & receipt.",
-      fees: "Based on area & property type",
-      applyLink: "#apply-tax",
-      formLink: "#form-tax",
-    },
-    aadhar: {
-      title: "Aadhar / Voter Help",
-      desc: "Help with new applications, corrections or updates in Aadhar or Voter ID.",
-      docs: ["Old Aadhar/Voter ID", "DOB proof", "Address proof", "Photo"],
-      process: "Walk-in to Panchayat center. Updates done in 7–15 days.",
-      fees: "₹50 for correction",
-      applyLink: "#apply-aadhar",
-      formLink: "#form-aadhar",
-    },
-    grievance: {
-      title: "Grievance Form",
-      desc: "Submit complaints about sanitation, roads, electricity, or local issues.",
-      docs: ["ID proof", "Issue details", "Location photo (if available)"],
-      process: "Submit at Panchayat. Issue acknowledged in 5 days, resolved soon.",
-      fees: "No charges",
-      applyLink: "#apply-grievance",
-      formLink: "#form-grievance",
-    },
-    lighting: {
-      title: "Sanitation & Lighting",
-      desc: "Request new streetlights, garbage collection, or public toilet repairs.",
-      docs: ["Request letter", "Location address", "Photos (if possible)"],
-      process: "Field visit within 5–7 days, action initiated accordingly.",
-      fees: "Free",
-      applyLink: "#apply-lighting",
-      formLink: "#form-lighting",
-    },
-    caste: {
-      title: "Domicile / Income / Caste",
-      desc: "Apply for essential certificates required for education, jobs, and schemes.",
-      docs: ["Aadhar card", "Ration card", "School bonafide", "Caste proof"],
-      process: "Verification done by officials. Issued within 10–15 working days.",
-      fees: "₹30 per certificate",
-      applyLink: "#apply-caste",
-      formLink: "#form-caste",
-    },
-    rti: {
-      title: "RTI Request",
-      desc: "File an RTI to access official Panchayat records or decisions.",
-      docs: ["ID proof", "Detailed request letter", "RTI application form"],
-      process: "Reply given within 30 days of submission as per RTI Act.",
-      fees: "₹10 (RTI filing fee)",
-      applyLink: "#apply-rti",
-      formLink: "#form-rti",
-    }
-  };
+  // },
+  //  death: {
+  //     title: "Death Certificate",
+  //     desc: "Proof of a person's death. Used for legal and financial matters like pension, insurance.",
+  //     docs: ["Medical certificate of death", "Aadhar card of deceased", "Applicant ID proof", "Filled application form"],
+  //     process: "Submit documents to Panchayat. Certificate issued within 5–10 days.",
+  //     fees: "₹50",
+  //     applyLink: "#apply-death",
+  //     formLink: "#form-death",
+  //   },
+  //   water: {
+  //     title: "Water Connection",
+  //     desc: "Apply for new or modified water supply connections for home or farm.",
+  //     docs: ["Property proof", "ID proof", "Electricity bill", "Filled application form"],
+  //     process: "Submit documents. Connection will be inspected and installed within 15 working days.",
+  //     fees: "₹300 + installation charges",
+  //     applyLink: "#apply-water",
+  //     formLink: "#form-water",
+  //   },
+  //   marriage: {
+  //     title: "Marriage Certificate",
+  //     desc: "Legal document verifying marriage. Required for visa, bank, and legal purposes.",
+  //     docs: ["Marriage invitation/photo", "Bride and groom ID proof", "2 witnesses' IDs", "Photos", "Filled form"],
+  //     process: "Submit documents. Certificate issued after 7–10 days verification.",
+  //     fees: "₹100",
+  //     applyLink: "#apply-marriage",
+  //     formLink: "#form-marriage",
+  //   },
+  //   tax: {
+  //     title: "House Tax",
+  //     desc: "Check and pay property/house tax. View receipts and clear dues.",
+  //     docs: ["House number or property ID", "Owner ID proof", "Old tax receipt"],
+  //     process: "Available at Gram Panchayat or online portal. Instant payment & receipt.",
+  //     fees: "Based on area & property type",
+  //     applyLink: "#apply-tax",
+  //     formLink: "#form-tax",
+  //   },
+  //   aadhar: {
+  //     title: "Aadhar / Voter Help",
+  //     desc: "Help with new applications, corrections or updates in Aadhar or Voter ID.",
+  //     docs: ["Old Aadhar/Voter ID", "DOB proof", "Address proof", "Photo"],
+  //     process: "Walk-in to Panchayat center. Updates done in 7–15 days.",
+  //     fees: "₹50 for correction",
+  //     applyLink: "#apply-aadhar",
+  //     formLink: "#form-aadhar",
+  //   },
+  //   grievance: {
+  //     title: "Grievance Form",
+  //     desc: "Submit complaints about sanitation, roads, electricity, or local issues.",
+  //     docs: ["ID proof", "Issue details", "Location photo (if available)"],
+  //     process: "Submit at Panchayat. Issue acknowledged in 5 days, resolved soon.",
+  //     fees: "No charges",
+  //     applyLink: "#apply-grievance",
+  //     formLink: "#form-grievance",
+  //   },
+  //   lighting: {
+  //     title: "Sanitation & Lighting",
+  //     desc: "Request new streetlights, garbage collection, or public toilet repairs.",
+  //     docs: ["Request letter", "Location address", "Photos (if possible)"],
+  //     process: "Field visit within 5–7 days, action initiated accordingly.",
+  //     fees: "Free",
+  //     applyLink: "#apply-lighting",
+  //     formLink: "#form-lighting",
+  //   },
+  //   caste: {
+  //     title: "Domicile / Income / Caste",
+  //     desc: "Apply for essential certificates required for education, jobs, and schemes.",
+  //     docs: ["Aadhar card", "Ration card", "School bonafide", "Caste proof"],
+  //     process: "Verification done by officials. Issued within 10–15 working days.",
+  //     fees: "₹30 per certificate",
+  //     applyLink: "#apply-caste",
+  //     formLink: "#form-caste",
+  //   },
+  //   rti: {
+  //     title: "RTI Request",
+  //     desc: "File an RTI to access official Panchayat records or decisions.",
+  //     docs: ["ID proof", "Detailed request letter", "RTI application form"],
+  //     process: "Reply given within 30 days of submission as per RTI Act.",
+  //     fees: "₹10 (RTI filing fee)",
+  //     applyLink: "#apply-rti",
+  //     formLink: "#form-rti",
+  //   }
+  // };
 
-  // 🔧 Function to show selected service data
+ 
   function showService(key, e) {
-    // Remove 'active' class from all buttons
-    document.querySelectorAll('.service-btn').forEach(btn => btn.classList.remove('active'));
-
-    // Add 'active' class to clicked button
-    if (e) e.target.classList.add('active');
-
-    // Get selected service data
-    const s = data[key];
-
-    // Inject data into the right section
-    document.getElementById('service-info').innerHTML = `
+  document.querySelectorAll('.service-btn').forEach(btn => btn.classList.remove('active'));
+if (e) e.target.classList.add('active');
+const s = data[key];
+document.getElementById('service-info').innerHTML = `
       <h3>${s.title}</h3>
       <div class="section-block">
         <p>${s.desc}</p>
@@ -570,265 +563,226 @@
     `;
   }
 
-  // ✅ Show Birth Certificate by default when page loads
+  
   window.addEventListener('DOMContentLoaded', function () {
-    showService('birth'); // default service to show on blank page
+    showService('birth'); 
   });
 
-  // 🌙 Optional: Dark mode toggle
+  
   function toggleDarkMode() {
     document.body.classList.toggle('dark');
   }
 </script>
 
    <!----------------------- document ----------------------------->                                                                                                                                                
-  <section id="documents-section" class="py-5 bg-light text-center">
-    <!-- Header Section -->
+   <section id="documents-section" class="py-5 bg-light text-center">
+    <!-- Header -->
     <div class="header">
-      <h1 class="main-title">Official Gram Panchayat Documents</h1>
-      <p>Access Transparent and Up-to-Date Governance Records</p>
+      <h1 id="documentsMainTitle" class="main-title">Official Gram Panchayat Documents</h1>
+      <p id="documentsMainSubtitle">Access Transparent and Up-to-Date Governance Records</p>
     </div>
-    <!-- Cards Grid Section -->
+  
+    <!-- Cards -->
     <section class="document-container">
       <div class="doc-grid">
-        <!-- Card 1 -->
+  
         <div class="doc-card">
           <i class="fas fa-file-invoice-dollar icon-green"></i>
-          <h3>Annual Budget Report</h3>
-          <p>
-            Detailed income and expenditure data for FY 2024–25, including
-            scheme-wise allocations.
-          </p>
-          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download PDF</a>
+          <h3 id="annualBudgetTitle">Annual Budget Report</h3>
+          <p id="annualBudgetDesc">Detailed income and expenditure data for FY 2024–25, including scheme-wise allocations.</p>
+          <a href="#" class="download-btn" id="annualBudgetBtn"><i class="fas fa-download"></i> Download PDF</a>
         </div>
-
-        <!-- Card 2 -->
+  
         <div class="doc-card">
           <i class="fas fa-file-alt icon-purple"></i>
-          <h3>Gram Sabha Minutes</h3>
-          <p>
-            Summary of key discussions and decisions from recent meetings held
-            this year.
-          </p>
-          <a href="#" class="download-btn"><i class="fas fa-eye"></i> View Minutes</a>
+          <h3 id="gramSabhaTitle">Gram Sabha Minutes</h3>
+          <p id="gramSabhaDesc">Summary of key discussions and decisions from recent meetings held this year.</p>
+          <a href="#" class="download-btn" id="gramSabhaBtn"><i class="fas fa-eye"></i> View Minutes</a>
         </div>
-
-        <!-- Card 3 -->
+  
         <div class="doc-card">
           <i class="fas fa-chart-line icon-orange"></i>
-          <h3>Scheme Implementation</h3>
-          <p>
-            Live tracking of scheme benefits, fund utilization, and progress
-            reports from 2023–2025.
-          </p>
-          <a href="#" class="download-btn"><i class="fas fa-file"></i> See Report</a>
+          <h3 id="schemeImplTitle">Scheme Implementation</h3>
+          <p id="schemeImplDesc">Live tracking of scheme benefits, fund utilization, and progress reports from 2023–2025.</p>
+          <a href="#" class="download-btn" id="schemeImplBtn"><i class="fas fa-file"></i> See Report</a>
         </div>
-
-        <!-- Card 4 -->
+  
         <div class="doc-card">
           <i class="fas fa-balance-scale icon-green"></i>
-          <h3>Financial Audit</h3>
-          <p>
-            Verified audit statements and compliance reports submitted to the
-            Zilla Parishad.
-          </p>
-          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download File</a>
+          <h3 id="financialAuditTitle">Financial Audit</h3>
+          <p id="financialAuditDesc">Verified audit statements and compliance reports submitted to the Zilla Parishad.</p>
+          <a href="#" class="download-btn" id="financialAuditBtn"><i class="fas fa-download"></i> Download File</a>
         </div>
-
-        <!-- Card 5 -->
+  
         <div class="doc-card">
           <i class="fas fa-home icon-brown"></i>
-          <h3>Land & Property Records</h3>
-          <p>
-            Digitized property ownership, mutation entries, tax dues, and
-            transfer logs.
-          </p>
-          <a href="#" class="download-btn"><i class="fas fa-search"></i> Check Records</a>
+          <h3 id="landRecordsTitle">Land & Property Records</h3>
+          <p id="landRecordsDesc">Digitized property ownership, mutation entries, tax dues, and transfer logs.</p>
+          <a href="#" class="download-btn" id="landRecordsBtn"><i class="fas fa-search"></i> Check Records</a>
         </div>
-
-        <!-- Card 6 -->
+  
         <div class="doc-card">
           <i class="fas fa-water icon-teal"></i>
-          <h3>Water Usage Report</h3>
-          <p>
-            Annual report of water supply management under Har Ghar Jal Mission.
-          </p>
-          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download</a>
+          <h3 id="waterUsageTitle">Water Usage Report</h3>
+          <p id="waterUsageDesc">Annual report of water supply management under Har Ghar Jal Mission.</p>
+          <a href="#" class="download-btn" id="waterUsageBtn"><i class="fas fa-download"></i> Download</a>
         </div>
-
-        <!-- Card 7 -->
+  
         <div class="doc-card">
           <i class="fas fa-baby icon-blue"></i>
-          <h3>Birth Registration Records</h3>
-          <p>
-            Official list of newborns in the village for the current and past
-            year with ID info.
-          </p>
-          <a href="#" class="download-btn"><i class="fas fa-eye"></i> View Birth Data</a>
+          <h3 id="birthRegTitle">Birth Registration Records</h3>
+          <p id="birthRegDesc">Official list of newborns in the village for the current and past year with ID info.</p>
+          <a href="#" class="download-btn" id="birthRegBtn"><i class="fas fa-eye"></i> View Birth Data</a>
         </div>
-
-        <!-- Card 8 -->
+  
         <div class="doc-card">
           <i class="fas fa-cross icon-blue"></i>
-          <h3>Death Certificate Register</h3>
-          <p>
-            List of issued death certificates and demographic updates maintained
-            monthly.
-          </p>
-          <a href="#" class="download-btn"><i class="fas fa-download"></i> Download Records</a>
+          <h3 id="deathCertTitle">Death Certificate Register</h3>
+          <p id="deathCertDesc">List of issued death certificates and demographic updates maintained monthly.</p>
+          <a href="#" class="download-btn" id="deathCertBtn"><i class="fas fa-download"></i> Download Records</a>
         </div>
+  
       </div>
     </section>
   </section>
   
+  
 <!--------------------- about-------------------->
-  <section id="about" class="py-5 bg-light text-center">
-    <div class="container">
-      <div class="header">
-        <h1 class="main-title">About Village</h1>
-      </div>
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <img src="./assets/image/shared image.jpeg" alt="Village Image" class="about-image">
-        </div>
-        <div class="col-md-6 about-text">
-          <p>
-            Gram Panchayat is a vibrant village located in the heart of Maharashtra. With a legacy of unity,
-            agriculture, and development, we are committed to making our village smart, sustainable, and self-reliant.
-          </p>
-          <ul>
-            <li>Strong community participation</li>
-            <li>Award-winning water conservation programs</li>
-            <li>100% digital birth/death certificate system</li>
-            <li>Fully connected village with Wi-Fi</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Modern Info Cards Section -->
-      <div class="row mt-4">
-        <!-- card-1 -->
-        <div class="col-md-4">
-          <div class="custom-card">
-            <div class="card-header">
-              <i class="bi bi-geo-alt-fill"></i>
-            </div>
-            <div class="card-body">
-              <h5>Location</h5>
-              <p>Located in the heart of Maharashtra, our village is known for its rich culture and agricultural
-                excellence.</p>
-            </div>
-          </div>
-        </div>
-        <!-- card-2 -->
-        <div class="col-md-4">
-          <div class="custom-card">
-            <div class="card-header">
-              <i class="bi bi-clock-history"></i>
-            </div>
-            <div class="card-body">
-              <h5>History</h5>
-              <p>Established in the 1800s, the village has a long-standing heritage of community and cooperation.</p>
-            </div>
-          </div>
-        </div>
-        <!-- card-3 -->
-        <div class="col-md-4">
-          <div class="custom-card">
-            <div class="card-header">
-              <i class="bi bi-flower2"></i>
-            </div>
-            <div class="card-body">
-              <h5>Culture</h5>
-              <p>Festivals, traditions, and unity are the soul of our vibrant rural life.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  </section>
-<!-- contact -->
-  <section id="contact" class="py-5 text-center">
+<section id="about" class="py-5 bg-light text-center">
+  <div class="container">
     <div class="header">
-      <h1 class="main-title">Wiwara Grampanchayat</h1>
+      <h1 id="aboutMainTitle" class="main-title">About Village</h1>
     </div>
-    <div class="container">
-      <h2>📬 Contact Us</h2>
-      <div class="contact-section">
-        <div class="info-card">
-          <h3>🏢 Grampanchayat Office</h3>
-          <p>📍 Wiwara Village, Taluka Narkhed,<br>District Nagpur, Maharashtra</p>
-          <p>📞 <strong>Phone:<a href="tel:+919373561415"></a></strong>+91-9373561415</p> 
-          <p>📧 <strong>Email:</strong> info@wiwarapanchayat.in</p>
-          <p>⏰ <strong>Office Hours:</strong> Mon - Sat: 10:00 AM - 5:00 PM</p>
-        </div>
-
-        <form class="form-card">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.2408301672678!2d78.4784541104724!3d21.35628161109559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd451fc2d421801%3A0xed4d79c09dfe4bc0!2sWiwara%2C%20Maharashtra%20441305!5e0!3m2!1sen!2sin!4v1752747586439!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        </form>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <img src="./assets/image/shared image.jpeg" alt="Village Image" class="about-image">
       </div>
-      
-  </section>
+      <div class="col-md-6 about-text">
+        <p id="aboutDescription">
+          Gram Panchayat is a vibrant village located in the heart of Maharashtra. With a legacy of unity,
+          agriculture, and development, we are committed to making our village smart, sustainable, and self-reliant.
+        </p>
+        <ul>
+          <li id="aboutPoint1">Strong community participation</li>
+          <li id="aboutPoint2">Award-winning water conservation programs</li>
+          <li id="aboutPoint3">100% digital birth/death certificate system</li>
+          <li id="aboutPoint4">Fully connected village with Wi-Fi</li>
+        </ul>
+      </div>
+    </div>
 
-  <footer>
-      <div
-        style="
-          max-width: 1200px;
-          margin: auto;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          gap: 20px;
-        "
-      >
-        <div style="flex: 1 1 250px">
-          <h3><i class="fas fa-leaf"></i> Wiwara Grampanchayat</h3>
-          <p>
-            Serving the community with commitment and care. Reach out anytime —
-            we're here for you.
-          </p>
-        </div>
-        <div style="flex: 1 1 250px">
-          <h4><i class="fas fa-link"></i> Quick Links</h4>
-          <ul>
-            <li>
-              <a href="#home"><i class="fas fa-home"></i> Home</a>
-            </li>
-            <li>
-              <a href="#services"
-                ><i class="fas fa-concierge-bell"></i> Services</a
-              >
-            </li>
-            <li>
-              <a href="#contact"
-                ><i class="fas fa-envelope-open-text"></i> Contact</a
-              >
-            </li>
-          </ul>
-        </div>
-        <div style="flex: 1 1 250px">
-          <h4><i class="fas fa-users"></i> Connect With Us</h4>
-          <p>
-            <i class="fab fa-facebook-square"></i> Facebook |
-            <i class="fab fa-instagram"></i> Instagram |
-            <i class="fab fa-twitter"></i> Twitter
-          </p>
-          <p>
-            <i class="fas fa-envelope"></i>
-            <a href="mailto:info@wiwarapanchayat.in">info@wiwarapanchayat.in</a>
-          </p>
-          <p>
-            <i class="fas fa-phone-alt"></i>
-            <a href="tel:+919373561415">+91-9373561415</a>
-          </p>
+    <!-- Modern Info Cards Section -->
+    <div class="row mt-4">
+      <!-- card-1 -->
+      <div class="col-md-4">
+        <div class="custom-card">
+          <div class="card-header">
+            <i class="bi bi-geo-alt-fill"></i>
+          </div>
+          <div class="card-body">
+            <h5 id="aboutCard1Title">Location</h5>
+            <p id="aboutCard1Desc">Located in the heart of Maharashtra, our village is known for its rich culture and agricultural excellence.</p>
+          </div>
         </div>
       </div>
-    </footer>
+      <!-- card-2 -->
+      <div class="col-md-4">
+        <div class="custom-card">
+          <div class="card-header">
+            <i class="bi bi-clock-history"></i>
+          </div>
+          <div class="card-body">
+            <h5 id="aboutCard2Title">History</h5>
+            <p id="aboutCard2Desc">Established in the 1800s, the village has a long-standing heritage of community and cooperation.</p>
+          </div>
+        </div>
+      </div>
+      <!-- card-3 -->
+      <div class="col-md-4">
+        <div class="custom-card">
+          <div class="card-header">
+            <i class="bi bi-flower2"></i>
+          </div>
+          <div class="card-body">
+            <h5 id="aboutCard3Title">Culture</h5>
+            <p id="aboutCard3Desc">Festivals, traditions, and unity are the soul of our vibrant rural life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- contact -->
+ <!-- contact -->
+<section id="contact" class="py-5 text-center">
+  <div class="header">
+    <h1 class="main-title" id="contact-title">Wiwara Grampanchayat</h1>
+  </div>
+  <div class="container">
+    <h2 id="contact-heading">📬 Contact Us</h2>
+    <div class="contact-section">
+      <div class="info-card">
+        <h3 id="office-title">🏢 Grampanchayat Office</h3>
+        <p id="office-address">
+          📍 Wiwara Village, Taluka Narkhed,<br>District Nagpur, Maharashtra
+        </p>
+        <p>
+          📞 <strong id="phone-label">Phone:</strong> 
+          <a id="phone-number" href="tel:+919373561415">+91-9373561415</a>
+        </p>
+        <p>📧 <strong id="email-label">Email:</strong> info@wiwarapanchayat.in</p>
+        <p id="office-hours">
+          ⏰ <strong>Office Hours:</strong> Mon - Sat: 10:00 AM - 5:00 PM
+        </p>
+      </div>
+
+      <form class="form-card">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d232.2408301672678!2d78.4784541104724!3d21.35628161109559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd451fc2d421801%3A0xed4d79c09dfe4bc0!2sWiwara%2C%20Maharashtra%20441305!5e0!3m2!1sen!2sin!4v1752747586439!5m2!1sen!2sin"
+          width="600"
+          height="450"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div style="max-width: 1200px; margin: auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px;">
+    
+    <!-- Left Section -->
+    <div style="flex: 1 1 250px">
+      <h3 id="footer-title"><i class="fas fa-leaf"></i> Wiwara Grampanchayat</h3>
+      <p id="footer-desc">Serving the community with commitment and care. Reach out anytime — we're here for you.</p>
+    </div>
+
+    <!-- Quick Links -->
+    <div style="flex: 1 1 250px">
+      <h4 id="footer-links-title"><i class="fas fa-link"></i> Quick Links</h4>
+      <ul>
+        <li><a href="#home" id="footer-home"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="#services" id="footer-services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+        <li><a href="#contact" id="footer-contact"><i class="fas fa-envelope-open-text"></i> Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Connect With Us -->
+    <div style="flex: 1 1 250px">
+      <h4 id="footer-connect-title"><i class="fas fa-users"></i> Connect With Us</h4>
+      <p id="footer-social"><i class="fab fa-facebook-square"></i> Facebook | <i class="fab fa-instagram"></i> Instagram | <i class="fab fa-twitter"></i> Twitter</p>
+      <p><i class="fas fa-envelope"></i> <a id="footer-email" href="mailto:info@wiwarapanchayat.in">info@wiwarapanchayat.in</a></p>
+      <p><i class="fas fa-phone-alt"></i> <a id="footer-phone" href="tel:+919373561415">+91-9373561415</a></p>
+    </div>
+    
+  </div>
+</footer>
+
     <script src="./assets/js/english.js"></script>
   <script src="./assets/js/hindi.js"></script>
   <script src="./assets/js/marathi.js"></script>
@@ -957,7 +911,79 @@ document.getElementById("grievanceBtn").innerText = data.grievanceBtn;
 document.getElementById("lightingBtn").innerText = data.lightingBtn;
 document.getElementById("casteBtn").innerText = data.casteBtn;
 document.getElementById("rtiBtn").innerText = data.rtiBtn;
-document.getElementById("one").innerText = data.one;
+
+// documents section
+document.getElementById("documentsMainTitle").innerHTML = data.documentsMainTitle;
+  document.getElementById("documentsMainSubtitle").innerHTML = data.documentsMainSubtitle;
+
+  document.getElementById("annualBudgetTitle").innerHTML = data.annualBudgetTitle;
+  document.getElementById("annualBudgetDesc").innerHTML = data.annualBudgetDesc;
+  document.getElementById("annualBudgetBtn").innerHTML = `<i class="fas fa-download"></i> ${data.annualBudgetBtn}`;
+
+  document.getElementById("gramSabhaTitle").innerHTML = data.gramSabhaTitle;
+  document.getElementById("gramSabhaDesc").innerHTML = data.gramSabhaDesc;
+  document.getElementById("gramSabhaBtn").innerHTML = `<i class="fas fa-eye"></i> ${data.gramSabhaBtn}`;
+
+  document.getElementById("schemeImplTitle").innerHTML = data.schemeImplTitle;
+  document.getElementById("schemeImplDesc").innerHTML = data.schemeImplDesc;
+  document.getElementById("schemeImplBtn").innerHTML = `<i class="fas fa-file"></i> ${data.schemeImplBtn}`;
+
+  document.getElementById("financialAuditTitle").innerHTML = data.financialAuditTitle;
+  document.getElementById("financialAuditDesc").innerHTML = data.financialAuditDesc;
+  document.getElementById("financialAuditBtn").innerHTML = `<i class="fas fa-download"></i> ${data.financialAuditBtn}`;
+
+  document.getElementById("landRecordsTitle").innerHTML = data.landRecordsTitle;
+  document.getElementById("landRecordsDesc").innerHTML = data.landRecordsDesc;
+  document.getElementById("landRecordsBtn").innerHTML = `<i class="fas fa-search"></i> ${data.landRecordsBtn}`;
+
+  document.getElementById("waterUsageTitle").innerHTML = data.waterUsageTitle;
+  document.getElementById("waterUsageDesc").innerHTML = data.waterUsageDesc;
+  document.getElementById("waterUsageBtn").innerHTML = `<i class="fas fa-download"></i> ${data.waterUsageBtn}`;
+
+  document.getElementById("birthRegTitle").innerHTML = data.birthRegTitle;
+  document.getElementById("birthRegDesc").innerHTML = data.birthRegDesc;
+  document.getElementById("birthRegBtn").innerHTML = `<i class="fas fa-eye"></i> ${data.birthRegBtn}`;
+
+  document.getElementById("deathCertTitle").innerHTML = data.deathCertTitle;
+  document.getElementById("deathCertDesc").innerHTML = data.deathCertDesc;
+  document.getElementById("deathCertBtn").innerHTML = `<i class="fas fa-download"></i> ${data.deathCertBtn}`;
+
+  // About section
+
+  document.getElementById("aboutMainTitle").innerHTML = data.aboutMainTitle;
+document.getElementById("aboutDescription").innerHTML = data.aboutDescription;
+document.getElementById("aboutPoint1").innerHTML = data.aboutPoint1;
+document.getElementById("aboutPoint2").innerHTML = data.aboutPoint2;
+document.getElementById("aboutPoint3").innerHTML = data.aboutPoint3;
+document.getElementById("aboutPoint4").innerHTML = data.aboutPoint4;
+document.getElementById("aboutCard1Title").innerHTML = data.aboutCard1Title;
+document.getElementById("aboutCard1Desc").innerHTML = data.aboutCard1Desc;
+document.getElementById("aboutCard2Title").innerHTML = data.aboutCard2Title;
+document.getElementById("aboutCard2Desc").innerHTML = data.aboutCard2Desc;
+document.getElementById("aboutCard3Title").innerHTML = data.aboutCard3Title;
+document.getElementById("aboutCard3Desc").innerHTML = data.aboutCard3Desc;
+
+// contact section
+document.getElementById("contact-title").innerHTML = data.contactTitle;
+  document.getElementById("contact-heading").innerHTML = data.contactHeading;
+  document.getElementById("office-title").innerHTML = data.officeTitle;
+  document.getElementById("office-address").innerHTML = data.officeAddress;
+  document.getElementById("phone-label").innerHTML = data.phoneLabel;
+  document.getElementById("phone-number").innerHTML = data.phoneNumber;
+  document.getElementById("email-label").innerHTML = data.emailLabel;
+  document.getElementById("office-hours").innerHTML = data.officeHours;
+  // footer section
+  document.getElementById("footer-title").innerHTML = `<i class="fas fa-leaf"></i> ${data.footerTitle}`;
+  document.getElementById("footer-desc").textContent = data.footerDesc;
+  document.getElementById("footer-links-title").innerHTML = `<i class="fas fa-link"></i> ${data.linksTitle}`;
+  document.getElementById("footer-home").innerHTML = `<i class="fas fa-home"></i> ${data.home}`;
+  document.getElementById("footer-services").innerHTML = `<i class="fas fa-concierge-bell"></i> ${data.services}`;
+  document.getElementById("footer-contact").innerHTML = `<i class="fas fa-envelope-open-text"></i> ${data.contact}`;
+  document.getElementById("footer-connect-title").innerHTML = `<i class="fas fa-users"></i> ${data.connectTitle}`;
+  document.getElementById("footer-social").textContent = data.social;
+  document.getElementById("footer-email").textContent = data.email;
+  document.getElementById("footer-phone").textContent = data.phone;
+
 
 }
     </script>

@@ -1333,7 +1333,7 @@
    border-radius: 6px;
    font-size: 0.9rem;
    font-weight: bold;
-   transition: background 0.3s ease;
+   transition:0.3s ease;
  }
 
  .btn-group a:hover {
