@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Farming Tools | Mayur Agro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f4fff4;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 30px;
+      }
+
+      .header {
+        background: linear-gradient(to right, #4caf50, #81c784);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: sticky;
+      }
+
+      .logo {
+        font-size: 32px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .logo span {
+        color: #d4ffd4;
+      }
+
+      /* Language Dropdown */
+      #select-lang {
+        padding: 5px 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: none;
+        background: #fff;
+        color: #333;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      /* Navigation */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+      .nav-links li {
+        position: relative;
+      }
+      .nav-links a {
+        color: #fff;
+        font-size: 19px;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 5px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+        left: 0;
+        bottom: -5px;
+        transition: 0.3s ease;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hamburger Menu Styling */
+      .nav-toggle {
+        display: none;
+      }
+      .nav-toggle-label {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 22px;
+        cursor: pointer;
+      }
+      .nav-toggle-label span {
+        display: block;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+
+      /* ------------------- Responsive Styles ------------------- */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-toggle-label {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 30px;
+          height: 16px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+
+        .nav-toggle-label span {
+          display: block;
+          height: 3px;
+          background: #fff;
+          border-radius: 2px;
+          transition: 0.3s;
+        }
+
+        /* Animate hamburger icon */
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+          transform: rotate(45deg) translateY(8px);
+        }
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+          transform: rotate(-45deg) translateY(-8px);
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: #66bb6a;
+          width: 100%;
+          padding: 15px;
+          border-radius: 10px;
+          margin-top: 15px;
+          text-align: center;
+          animation: fadeDown 0.4s ease-in-out forwards;
+          gap: 1px;
+        }
+
+        .nav-toggle:checked + .nav-toggle-label + .nav-links {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        #select-lang {
+          margin-top: 15px;
+          width: 100%;
+          padding: 8px;
+          border-radius: 6px;
+          font-size: 25px;
+        }
+      }
+
+      /* Extra small devices */
+      @media (max-width: 480px) {
+        .logo {
+          font-size: 22px;
+          line-height: 1.2;
+        }
+
+        .nav-links a {
+          font-size: 16px;
+        }
+
+        #select-lang {
+          font-size: 14px;
+          padding: 6px;
+        }
+      }
+
+      /* Optional animation */
+      @keyframes fadeDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .tools-section {
+        max-width: 1200px;
+        margin: auto;
+        padding: 60px 20px;
+      }
+
+      .tools-section h1 {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 60px;
+        color: #2e7d32;
+      }
+
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+      }
+
+      .tools-card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 128, 0, 0.12);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .tools-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(0, 128, 0, 0.18);
+      }
+
+      .tools-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        padding: 15px;
+        background-color: #f4fff8;
+        transition: transform 0.4s ease;
+      }
+
+      .tools-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .tools-card-content {
+        padding: 20px;
+      }
+
+      .tools-card h3 {
+        font-size: 22px;
+        color: #2e7d32;
+        margin-bottom: 10px;
+      }
+
+      .tools-card p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #4caf50;
+        color: #fff;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        font-size: 14px;
+      }
+
+      .btn:hover {
+        background: #2e7d32;
+      }
+
+      @media (max-width: 768px) {
+        .tools-section {
+          padding: 40px 15px;
+        }
+
+        .tools-section h1 {
+          font-size: 28px;
+          margin-bottom: 40px;
+        }
+
+        .tools-card img {
+          height: 160px;
+          padding: 10px;
+        }
+
+        .tools-card-content {
+          padding: 16px;
+        }
+
+        .tools-card h3 {
+          font-size: 18px;
+        }
+
+        .tools-card p {
+          font-size: 13px;
+        }
+
+        .btn {
+          font-size: 13px;
+          padding: 8px 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .tools-section h1 {
+          font-size: 24px;
+        }
+
+        .tools-card h3 {
+          font-size: 16px;
+        }
+
+        .tools-card p {
+          font-size: 12px;
+        }
+
+        .btn {
+          font-size: 12px;
+          padding: 7px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo" id="logo">🌾 Mayur <span>Agro</span> Agency</div>
+
+        <!-- Hamburger Menu -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="../../index.html" id="home_1">Home</a></li>
+          <li><a href="../../index.html#about" id="about_1">About</a></li>
+          <li><a href="../../index.html" id="products_1">Products</a></li>
+          <li><a href="../../index.html" id="services_1">Services</a></li>
+          <li><a href="../../index.html" id="contact_1">Contact</a></li>
+        </ul>
+
+        <!-- Language Selector -->
+        <select name="language" id="select-lang" onchange="translateLanguage()">
+          <option value="english">English</option>
+          <option value="hindi">हिंदी</option>
+          <option value="marathi">मराठी</option>
+        </select>
+      </div>
+    </header>
+
+    <section class="tools-section">
+      <h1 id="toolsTitle">🧰 Farming Tools</h1>
+      <div class="tools-grid">
+        <div class="tools-card">
+          <img
+            src="https://www.deere.co.in/assets/images/region-1/products/tractors/john-deere-d-series-tractor.jpg"
+            alt="Tractor"
+          />
+          <div class="tools-card-content">
+            <h3 id="tool1Title">Tractor</h3>
+            <p id="tool1Desc">
+              Powerful multi-purpose tractor for all types of farming tasks.
+            </p>
+            <a href="#" class="btn" id="tool1Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="tools-card">
+          <img
+            src="https://agriculturalmachinery.weebly.com/uploads/1/3/2/2/132264880/mounted-mould-board-plough_orig.png"
+            alt="Plough"
+          />
+          <div class="tools-card-content">
+            <h3 id="tool2Title">Plough</h3>
+            <p id="tool2Desc">
+              Used for initial soil breaking to enhance crop rooting.
+            </p>
+            <a href="#" class="btn" id="tool2Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="tools-card">
+          <img
+            src="https://5.imimg.com/data5/SELLER/Default/2022/4/UT/DN/QH/3396586/harrow-8-8-disc-500x500.jpeg"
+            alt="Harrow"
+          />
+          <div class="tools-card-content">
+            <h3 id="tool3Title">Harrow</h3>
+            <p id="tool3Desc">
+              Great for breaking clods and smoothing soil after ploughing.
+            </p>
+            <a href="#" class="btn" id="tool3Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="tools-card">
+          <img
+            src="https://5.imimg.com/data5/SELLER/Default/2023/12/367520014/EF/ZG/GJ/2497808/seed-planter.jpg"
+            alt="Seed Drill"
+          />
+          <div class="tools-card-content">
+            <h3 id="tool4Title">Seed Drill</h3>
+            <p id="tool4Desc">
+              Ensures uniform seed distribution across your farmland.
+            </p>
+            <a href="#" class="btn" id="tool4Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="tools-card">
+          <img
+            src="https://pre-live-admin.balwaan.com/uploads/media/2024/manual-sprayer-for-garden-20-liter-1.jpg"
+            alt="Sprayer"
+          />
+          <div class="tools-card-content">
+            <h3 id="tool5Title">Sprayer</h3>
+            <p id="tool5Desc">
+              For applying fertilizers and pesticides evenly and efficiently.
+            </p>
+            <a href="#" class="btn" id="tool5Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="tools-card">
+          <img
+            src="https://media.istockphoto.com/id/1341211152/vector/garden-equipment-on-a-blue-background.jpg?s=612x612&w=0&k=20&c=7Z-KTXhpViRKYJVOnNY2ce4z9gLAZF-8TRY5mXvEwHI="
+            alt="Hoe"
+          />
+          <div class="tools-card-content">
+            <h3 id="tool6Title">Hoe</h3>
+            <p id="tool6Desc">
+              Simple and effective hand tool for weeding and digging.
+            </p>
+            <a href="#" class="btn" id="tool6Btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/assets/languages/english.js"></script>
+    <script src="/assets/languages/hindi.js"></script>
+    <script src="/assets/languages/marathi.js"></script>
+
+    <script>
+      const translate = {
+        hindi: hindiData,
+        english: englishData,
+        marathi: marathiData,
+      };
+      function translateLanguage() {
+        const selectLanguage = document.getElementById("select-lang").value;
+        let result = translate[selectLanguage];
+
+        document.getElementById("logo").innerHTML = result.logo;
+        document.getElementById("home_1").innerHTML = result.home_1;
+        document.getElementById("about_1").innerHTML = result.about_1;
+        document.getElementById("products_1").innerHTML = result.products_1;
+        document.getElementById("services_1").innerHTML = result.services_1;
+        document.getElementById("contact_1").innerHTML = result.contact_1;
+
+        document.getElementById("toolsTitle").innerHTML = hindiData.toolsTitle;
+        document.getElementById("tool1Title").innerHTML = hindiData.tool1Title;
+        document.getElementById("tool1Desc").innerHTML = hindiData.tool1Desc;
+        document.getElementById("tool1Btn").innerHTML = hindiData.tool1Btn;
+
+        document.getElementById("tool2Title").innerHTML = hindiData.tool2Title;
+        document.getElementById("tool2Desc").innerHTML = hindiData.tool2Desc;
+        document.getElementById("tool2Btn").innerHTML = hindiData.tool2Btn;
+
+        document.getElementById("tool3Title").innerHTML = hindiData.tool3Title;
+        document.getElementById("tool3Desc").innerHTML = hindiData.tool3Desc;
+        document.getElementById("tool3Btn").innerHTML = hindiData.tool3Btn;
+
+        document.getElementById("tool4Title").innerHTML = hindiData.tool4Title;
+        document.getElementById("tool4Desc").innerHTML = hindiData.tool4Desc;
+        document.getElementById("tool4Btn").innerHTML = hindiData.tool4Btn;
+
+        document.getElementById("tool5Title").innerHTML = hindiData.tool5Title;
+        document.getElementById("tool5Desc").innerHTML = hindiData.tool5Desc;
+        document.getElementById("tool5Btn").innerHTML = hindiData.tool5Btn;
+
+        document.getElementById("tool6Title").innerHTML = hindiData.tool6Title;
+        document.getElementById("tool6Desc").innerHTML = hindiData.tool6Desc;
+        document.getElementById("tool6Btn").innerHTML = hindiData.tool6Btn;
+      }
+    </script>
+  </body>
+</html>

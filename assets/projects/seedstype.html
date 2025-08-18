@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>All Seed Types | Mayur Agro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background-color: #f4fff4;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 30px;
+      }
+
+      .header {
+        background: linear-gradient(to right, #4caf50, #81c784);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: sticky;
+      }
+
+      .logo {
+        font-size: 32px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .logo span {
+        color: #d4ffd4;
+      }
+
+      /* Language Dropdown */
+      #select-lang {
+        padding: 5px 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        border: none;
+        background: #fff;
+        color: #333;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      /* Navigation */
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 30px;
+      }
+      .nav-links li {
+        position: relative;
+      }
+      .nav-links a {
+        color: #fff;
+        font-size: 19px;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 5px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: #fff;
+        left: 0;
+        bottom: -5px;
+        transition: 0.3s ease;
+      }
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hamburger Menu Styling */
+      .nav-toggle {
+        display: none;
+      }
+      .nav-toggle-label {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 22px;
+        cursor: pointer;
+      }
+      .nav-toggle-label span {
+        display: block;
+        height: 3px;
+        background: white;
+        border-radius: 2px;
+        transition: 0.3s;
+      }
+
+      /* ------------------- Responsive Styles ------------------- */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .nav-toggle-label {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          width: 30px;
+          height: 16px;
+          cursor: pointer;
+          margin-top: 10px;
+        }
+
+        .nav-toggle-label span {
+          display: block;
+          height: 3px;
+          background: #fff;
+          border-radius: 2px;
+          transition: 0.3s;
+        }
+
+        /* Animate hamburger icon */
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+          transform: rotate(45deg) translateY(8px);
+        }
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+          opacity: 0;
+        }
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+          transform: rotate(-45deg) translateY(-8px);
+        }
+
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          background-color: #66bb6a;
+          width: 100%;
+          padding: 15px;
+          border-radius: 10px;
+          margin-top: 15px;
+          text-align: center;
+          animation: fadeDown 0.4s ease-in-out forwards;
+          gap: 1px;
+        }
+
+        .nav-toggle:checked + .nav-toggle-label + .nav-links {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 10px 0;
+        }
+
+        #select-lang {
+          margin-top: 15px;
+          width: 100%;
+          padding: 8px;
+          border-radius: 6px;
+          font-size: 25px;
+        }
+      }
+
+      /* Extra small devices */
+      @media (max-width: 480px) {
+        .logo {
+          font-size: 22px;
+          line-height: 1.2;
+        }
+
+        .nav-links a {
+          font-size: 16px;
+        }
+
+        #select-lang {
+          font-size: 14px;
+          padding: 6px;
+        }
+      }
+
+      /* Optional animation */
+      @keyframes fadeDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .all-seeds {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+      }
+
+      .all-seeds h1 {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 60px;
+        color: #2e7d32;
+      }
+
+      .seed-category {
+        margin-bottom: 60px;
+      }
+
+      .seed-category h2 {
+        font-size: 28px;
+        color: #1b5e20;
+        margin-bottom: 30px;
+        border-left: 5px solid #66bb6a;
+        padding-left: 15px;
+      }
+
+      .seed-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+      }
+
+      .seed-card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 128, 0, 0.12);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .seed-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(0, 128, 0, 0.18);
+      }
+
+      .seed-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        padding: 15px;
+        background-color: #f4fff8;
+        transition: transform 0.4s ease;
+      }
+
+      .seed-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .seed-card-content {
+        padding: 20px;
+      }
+
+      .seed-card h3 {
+        font-size: 22px;
+        color: #2e7d32;
+        margin-bottom: 10px;
+      }
+
+      .seed-card p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #4caf50;
+        color: #fff;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: 0.3s ease;
+      }
+
+      .btn:hover {
+        background: #2e7d32;
+      }
+
+      @media (max-width: 768px) {
+        .all-seeds h1 {
+          font-size: 28px;
+          margin-bottom: 40px;
+        }
+
+        .seed-category {
+          margin-bottom: 40px;
+        }
+
+        .seed-category h2 {
+          font-size: 22px;
+          padding-left: 0;
+          border: none;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .seed-card img {
+          height: 160px;
+          padding: 10px;
+        }
+
+        .seed-card-content {
+          padding: 16px;
+        }
+
+        .seed-card h3 {
+          font-size: 18px;
+        }
+
+        .seed-card p {
+          font-size: 13px;
+        }
+
+        .btn {
+          font-size: 13px;
+          padding: 8px 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .all-seeds h1 {
+          font-size: 24px;
+        }
+
+        .seed-card h3 {
+          font-size: 16px;
+        }
+
+        .seed-card p {
+          font-size: 12px;
+        }
+
+        .btn {
+          font-size: 12px;
+          padding: 7px 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo" id="logo">🌾 Mayur <span>Agro</span> Agency</div>
+
+        <!-- Hamburger Menu -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="../../index.html#hero" id="home_1">Home</a></li>
+          <li><a href="../../index.html#about" id="about_1">About</a></li>
+          <li>
+            <a href="../../index.html#products" id="products_1">Products</a>
+          </li>
+          <li>
+            <a href="../../index.html#services" id="services_1">Services</a>
+          </li>
+          <li><a href="../../index.html#contact" id="contact_1">Contact</a></li>
+        </ul>
+
+        <!-- Language Selector -->
+        <select name="language" id="select-lang" onchange="translateLanguage()">
+          <option value="english">English</option>
+          <option value="hindi">हिंदी</option>
+          <option value="marathi">मराठी</option>
+        </select>
+      </div>
+    </header>
+
+    <!-- Seed Section -->
+    <section class="all-seeds" id="allSeedsSection">
+      <h1 id="allSeedHeading">🌱 All Available Seed Types</h1>
+
+      <!-- Wheat Seeds -->
+      <div class="seed-category" id="wheatCategory">
+        <h2 id="wheatHeading">🌾 Wheat Seeds</h2>
+        <div class="seed-grid">
+          <div class="seed-card" id="wheatCard1">
+            <img
+              src="https://biokhet.com/wp-content/uploads/2024/07/WHEAT-HD-2967.png"
+              alt="HD-2967"
+            />
+            <div class="seed-card-content">
+              <h3 id="wheatName1">HD-2967</h3>
+              <p id="wheatDesc1">
+                High-yield wheat variety with great disease resistance.
+              </p>
+              <a href="#" class="btn" id="buyNowWheat1">Buy Now</a>
+            </div>
+          </div>
+
+          <div class="seed-card" id="wheatCard2">
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2025/3/497563128/TH/CH/GP/132016521/377.jpeg"
+              alt="PBW-343"
+            />
+            <div class="seed-card-content">
+              <h3 id="wheatName2">PBW-343</h3>
+              <p id="wheatDesc2">
+                Productive and adaptable wheat seed for Indian climate.
+              </p>
+              <a href="#" class="btn" id="buyNowWheat2">Buy Now</a>
+            </div>
+          </div>
+
+          <div class="seed-card" id="wheatCard3">
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2023/8/337442859/DU/DR/RL/106616364/sahyog-lok-1-wheat-seeds.png"
+              alt="Lok-1"
+            />
+            <div class="seed-card-content">
+              <h3 id="wheatName3">Lok-1</h3>
+              <p id="wheatDesc3">
+                Early maturing wheat seed, good for dryland regions.
+              </p>
+              <a href="#" class="btn" id="buyNowWheat3">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cotton Seeds -->
+      <div class="seed-category" id="cottonCategory">
+        <h2 id="cottonHeading">🌿 Cotton Seeds</h2>
+        <div class="seed-grid">
+          <div class="seed-card" id="cottonCard1">
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2023/4/303801216/QH/HY/KD/111624677/ssd-333-bg-ii-cotton-hybrid-seed-500x500.jpg"
+              alt="Bt Cotton"
+            />
+            <div class="seed-card-content">
+              <h3 id="cottonName1">Bt Cotton</h3>
+              <p id="cottonDesc1">
+                Pest-resistant cotton variety, perfect for large farms.
+              </p>
+              <a href="#" class="btn" id="buyNowCotton1">Buy Now</a>
+            </div>
+          </div>
+
+          <div class="seed-card" id="cottonCard2">
+            <img
+              src="https://5.imimg.com/data5/SELLER/Default/2022/9/BE/XB/XF/1952238/whatsapp-image-2022-09-09-at-17-43-25-500x500.jpeg"
+              alt="Hybrid Cotton"
+            />
+            <div class="seed-card-content">
+              <h3 id="cottonName2">Hybrid Cotton</h3>
+              <p id="cottonDesc2">
+                Fast growing cotton seed for high productivity.
+              </p>
+              <a href="#" class="btn" id="buyNowCotton2">Buy Now</a>
+            </div>
+          </div>
+
+          <div class="seed-card" id="cottonCard3">
+            <img
+              src="https://inputs.kalgudi.com/data/p_images/1650689378671.jpeg"
+              alt="Desi Cotton"
+            />
+            <div class="seed-card-content">
+              <h3 id="cottonName3">Desi Cotton</h3>
+              <p id="cottonDesc3">
+                Traditional, drought-tolerant cotton seed for drylands.
+              </p>
+              <a href="#" class="btn" id="buyNowCotton3">Buy Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="/assets/languages/english.js"></script>
+    <script src="/assets/languages/hindi.js"></script>
+    <script src="/assets/languages/marathi.js"></script>
+
+    <script>
+      const translate = {
+        hindi: hindiData,
+        english: englishData,
+        marathi: marathiData,
+      };
+      function translateLanguage() {
+        const selectLanguage = document.getElementById("select-lang").value;
+        let result = translate[selectLanguage];
+        document.getElementById("logo").innerHTML = result.logo;
+        document.getElementById("home_1").innerHTML = result.home_1;
+        document.getElementById("about_1").innerHTML = result.about_1;
+        document.getElementById("products_1").innerHTML = result.products_1;
+        document.getElementById("services_1").innerHTML = result.services_1;
+        document.getElementById("contact_1").innerHTML = result.contact_1;
+
+        document.getElementById("allSeedHeading").textContent =
+          result.allSeedHeading;
+        document.getElementById("wheatHeading").textContent =
+          result.wheatHeading;
+        document.getElementById("wheatName1").textContent = result.wheatName1;
+        document.getElementById("wheatDesc1").textContent = result.wheatDesc1;
+        document.getElementById("wheatName2").textContent = result.wheatName2;
+        document.getElementById("wheatDesc2").textContent = result.wheatDesc2;
+        document.getElementById("wheatName3").textContent = result.wheatName3;
+        document.getElementById("wheatDesc3").textContent = result.wheatDesc3;
+
+        document.getElementById("cottonHeading").textContent =
+          result.cottonHeading;
+        document.getElementById("cottonName1").textContent = result.cottonName1;
+        document.getElementById("cottonDesc1").textContent = result.cottonDesc1;
+        document.getElementById("cottonName2").textContent = result.cottonName2;
+        document.getElementById("cottonDesc2").textContent = result.cottonDesc2;
+        document.getElementById("cottonName3").textContent = result.cottonName3;
+        document.getElementById("cottonDesc3").textContent = result.cottonDesc3;
+
+        // Update all "Buy Now" buttons
+        document.getElementById("buyNowWheat1").textContent = result.buyNow;
+        document.getElementById("buyNowWheat2").textContent = result.buyNow;
+        document.getElementById("buyNowWheat3").textContent = result.buyNow;
+        document.getElementById("buyNowCotton1").textContent = result.buyNow;
+        document.getElementById("buyNowCotton2").textContent = result.buyNow;
+        document.getElementById("buyNowCotton3").textContent = result.buyNow;
+      }
+    </script>
+  </body>
+</html>

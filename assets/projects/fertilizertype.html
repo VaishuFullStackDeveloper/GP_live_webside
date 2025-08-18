@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Fertilizers | Mayur Agro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4fff4;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 30px;
+}
+
+.header {
+  background: linear-gradient(to right, #4CAF50, #81C784);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+}
+.logo span {
+  color: #d4ffd4;
+}
+
+/* Language Dropdown */
+#select-lang {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background: #fff;
+  color: #333;
+  margin-left: 10px;
+  cursor: pointer;
+  
+}
+
+/* Navigation */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap:30px;
+  
+}
+.nav-links li {
+  position: relative;
+}
+.nav-links a {
+  color: #fff;
+  font-size: 19px;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px ;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s ease;
+}
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Hamburger Menu Styling */
+.nav-toggle {
+  display: none;
+}
+.nav-toggle-label {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+.nav-toggle-label span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+
+
+
+
+
+  /* ------------------- Responsive Styles ------------------- */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-toggle-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+
+  .nav-toggle-label span {
+    display: block;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* Animate hamburger icon */
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle:checked + .nav-toggle-label span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #66bb6a;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 15px;
+    text-align: center;
+    animation: fadeDown 0.4s ease-in-out forwards;
+    gap: 1px;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label + .nav-links {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  #select-lang {
+    margin-top: 15px;
+    width: 100%;
+    padding: 8px;
+    border-radius: 6px;
+    font-size: 25px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+
+  #select-lang {
+    font-size: 14px;
+    padding: 6px;
+  }
+}
+
+/* Optional animation */
+@keyframes fadeDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+      .fertilizer-section {
+        max-width: 1200px;
+        margin: auto;
+        padding: 60px 20px;
+      }
+
+      .fertilizer-section h1 {
+        text-align: center;
+        font-size: 40px;
+        margin-bottom: 60px;
+        color: #2e7d32;
+      }
+
+      .fertilizer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+      }
+
+      .fertilizer-card {
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 6px 20px rgba(0, 128, 0, 0.12);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .fertilizer-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 30px rgba(0, 128, 0, 0.18);
+      }
+
+      .fertilizer-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        padding: 15px;
+        background-color: #f4fff8;
+        transition: transform 0.4s ease;
+      }
+
+      .fertilizer-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .fertilizer-card-content {
+        padding: 20px;
+      }
+
+      .fertilizer-card h3 {
+        font-size: 22px;
+        color: #2e7d32;
+        margin-bottom: 10px;
+      }
+
+      .fertilizer-card p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 20px;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #4caf50;
+        color: #fff;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        font-size: 14px;
+      }
+
+      .btn:hover {
+        background: #2e7d32;
+      }
+
+      @media (max-width: 768px) {
+        .fertilizer-section {
+          padding: 40px 15px;
+        }
+
+        .fertilizer-section h1 {
+          font-size: 28px;
+          margin-bottom: 40px;
+        }
+
+        .fertilizer-card img {
+          height: 160px;
+          padding: 10px;
+        }
+
+        .fertilizer-card-content {
+          padding: 16px;
+        }
+
+        .fertilizer-card h3 {
+          font-size: 18px;
+        }
+
+        .fertilizer-card p {
+          font-size: 13px;
+        }
+
+        .btn {
+          font-size: 13px;
+          padding: 8px 20px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .fertilizer-section h1 {
+          font-size: 24px;
+        }
+
+        .fertilizer-card h3 {
+          font-size: 16px;
+        }
+
+        .fertilizer-card p {
+          font-size: 12px;
+        }
+
+        .btn {
+          font-size: 12px;
+          padding: 7px 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="header">
+      <div class="container header-content">
+        <div class="logo" id="logo">🌾 Mayur <span>Agro</span> Agency</div>
+    
+        <!-- Hamburger Menu -->
+        <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+        <label for="nav-toggle" class="nav-toggle-label">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+    
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+          <li><a href="../../index.html#home" id="home_1">Home</a></li>
+          <li><a href="../../index.html#about" id="about_1">About</a></li>
+          <li><a href="../../index.html#products" id="products_1">Products</a></li>
+          <li><a href="../../index.html#services" id="services_1">Services</a></li>
+          <li><a href="../../index.html#contact" id="contact_1">Contact</a></li>
+        </ul>
+    
+        <!-- Language Selector -->
+        <select name="language" id="select-lang" onchange="translateLanguage()">
+          <option value="english">English</option>
+          <option value="hindi">हिंदी</option>
+          <option value="marathi">मराठी</option>
+        </select>
+      </div>
+    </header>
+    
+    <section class="fertilizer-section">
+      <h1 id="fertilizerTitle">🌿 Our Fertilizer Products</h1>
+      <div class="fertilizer-grid">
+        <div class="fertilizer-card">
+          <img
+            src="https://gogarden.co.in/cdn/shop/files/71yg6hRnpTL._SL1200_fac2b8e7-208b-482d-9493-07d03daaff6f.jpg?v=1741858085"
+            alt="Urea Fertilizer"
+          />
+          <div class="fertilizer-card-content">
+            <h3 id="fert1Title">Urea</h3>
+            <p id="fert1Desc">
+              Highly concentrated nitrogen fertilizer for fast plant growth.
+            </p>
+            <a href="#" class="btn" id="fert1Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="fertilizer-card">
+          <img
+            src="https://m.media-amazon.com/images/I/51Ooks8QzOL.jpg"
+            alt="DAP Fertilizer"
+          />
+          <div class="fertilizer-card-content">
+            <h3 id="fert2Title">DAP</h3>
+            <p id="fert2Desc">
+              Di-Ammonium Phosphate for stronger root development.
+            </p>
+            <a href="#" class="btn" id="fert2Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="fertilizer-card">
+          <img
+            src="https://iplbiologicals.com/wp-content/uploads/2023/11/WhatsApp-Image-2024-07-03-at-12.12.35-PM.jpeg"
+            alt="Potash Fertilizer"
+          />
+          <div class="fertilizer-card-content">
+            <h3 id="fert3Title">Potash</h3>
+            <p id="fert3Desc">
+              Essential potassium nutrient to boost flowering & yield.
+            </p>
+            <a href="#" class="btn" id="fert3Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="fertilizer-card">
+          <img
+            src="https://gardengenie.in/wp-content/uploads/2023/11/Vermicompost-for-Home-Garden.webp"
+            alt="Vermicompost"
+          />
+          <div class="fertilizer-card-content">
+            <h3 id="fert4Title">Vermicompost</h3>
+            <p id="fert4Desc">
+              Organic fertilizer that improves soil health & fertility.
+            </p>
+            <a href="#" class="btn" id="fert4Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="fertilizer-card">
+          <img
+            src="https://cdn.moglix.com/p/qBL4fztqd7Thv.jpg"
+            alt="NPK Combo"
+          />
+          <div class="fertilizer-card-content">
+            <h3 id="fert5Title">NPK Combo</h3>
+            <p id="fert5Desc">
+              Balanced nutrients for all-round crop health & yield.
+            </p>
+            <a href="#" class="btn" id="fert5Btn">Buy Now</a>
+          </div>
+        </div>
+
+        <div class="fertilizer-card">
+          <img
+            src="https://vfpckonline.com/image/cache/catalog/A_OrganicInputs_3D/Dried%20cow%20Dung-800x800.jpg"
+            alt="Cow Dung Fertilizer"
+          />
+          <div class="fertilizer-card-content">
+            <h3 id="fert6Title">Dry Cow Dung</h3>
+            <p id="fert6Desc">
+              Natural traditional fertilizer for improving soil quality.
+            </p>
+            <a href="#" class="btn" id="fert6Btn">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="/assets/languages/english.js"></script>
+    <script src="/assets/languages/hindi.js"></script>
+    <script src="/assets/languages/marathi.js"></script>
+
+    <script>
+      const translate = {
+        hindi: hindiData,
+        english: englishData,
+        marathi: marathiData,
+      };
+      function translateLanguage() {
+        const selectLanguage = document.getElementById("select-lang").value;
+        let result = translate[selectLanguage];
+        document.getElementById("logo").innerHTML = result.logo;
+        document.getElementById("home_1").innerHTML = result.home_1;
+        document.getElementById("about_1").innerHTML = result.about_1;
+        document.getElementById("products_1").innerHTML = result.products_1;
+        document.getElementById("services_1").innerHTML = result.services_1;
+        document.getElementById("contact_1").innerHTML = result.contact_1;
+
+        document.getElementById("fertilizerTitle").innerHTML =
+          result.fertilizerTitle;
+
+        document.getElementById("fert1Title").innerHTML = result.fert1Title;
+        document.getElementById("fert1Desc").innerHTML = result.fert1Desc;
+        document.getElementById("fert1Btn").innerHTML = result.fert1Btn;
+
+        document.getElementById("fert2Title").innerHTML = result.fert2Title;
+        document.getElementById("fert2Desc").innerHTML = result.fert2Desc;
+        document.getElementById("fert2Btn").innerHTML = result.fert2Btn;
+
+        document.getElementById("fert3Title").innerHTML = result.fert3Title;
+        document.getElementById("fert3Desc").innerHTML = result.fert3Desc;
+        document.getElementById("fert3Btn").innerHTML = result.fert3Btn;
+
+        document.getElementById("fert4Title").innerHTML = result.fert4Title;
+        document.getElementById("fert4Desc").innerHTML = result.fert4Desc;
+        document.getElementById("fert4Btn").innerHTML = result.fert4Btn;
+
+        document.getElementById("fert5Title").innerHTML = result.fert5Title;
+        document.getElementById("fert5Desc").innerHTML = result.fert5Desc;
+        document.getElementById("fert5Btn").innerHTML = result.fert5Btn;
+
+        document.getElementById("fert6Title").innerHTML = result.fert6Title;
+        document.getElementById("fert6Desc").innerHTML = result.fert6Desc;
+        document.getElementById("fert6Btn").innerHTML = result.fert6Btn;
+      }
+    </script>
+  </body>
+</html>
